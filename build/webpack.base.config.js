@@ -11,9 +11,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const poststylus = require('poststylus')
 
 const config = {
-    entry: {
-        index: './src/index.jsx'
-    },
+    entry: [
+        'babel-polyfill',
+        'whatwg-fetch',
+        './src/index.jsx'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',

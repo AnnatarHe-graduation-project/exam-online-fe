@@ -1,18 +1,18 @@
 /**
  * @author AnnatarHe
  * @email iamhele1994@gmail.com
- * @date 2016.10.20
+ * @date 2016.10.22
  */
 
 import React from 'react'
 
-const Root = () => {
+const Footer = () => {
     return (
         <div>
-            <h1>hello world</h1>
+            footer
         </div>
     )
 }
 
-export default Root
+export default Footer
 

@@ -7,14 +7,15 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { Router, browserHistory } from 'react-router'
 
-import Root from './pages/root/root'
 import store from './store/index'
+import routes from './route'
 
 const App = () => {
     return (
         <Provider store={store}>
-            <Root />
+            <Router history={browserHistory} routes={routes} />
         </Provider>
     )
 }
