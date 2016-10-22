@@ -9,6 +9,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 import Menu from '../../components/menu/menu'
+import '../../styles/index'
 
 const Root = ({ children, location }) => {
     return (
