@@ -6,30 +6,57 @@
 
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { connect } from 'react-redux'
+import {
+    menuToggle
+} from '../../actions/menu'
+
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'
 import Menu from '../../components/menu/menu'
-import '../../styles/index'
 
-const Root = ({ children, location }) => {
-    return (
-        <section>
-            <Header />
-            <Menu />
-            <section>
+import '../../styles/index'
+import styles from './root.css'
+
+const mapStateToProps = (state) => {
+    return {
+        menu: state.global.menu
+    }
+}
+
+@connect(mapStateToProps)
+class Root extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        const { children, location, menu } = this.props
+        return (
+            <section className={styles.body}>
                 <ReactCSSTransitionGroup
-                    className="foo"
+                    className={styles.menu}
                     component="div"
-                    transitionName="fade"
+                    transitionName="menu"
                 >
-                    {React.cloneElement(children, {
-                        key: location.pathname
-                    })}
+                    { menu ? <Menu /> : null }
                 </ReactCSSTransitionGroup>
+                <section className={styles.container}>
+                    <Header />
+                    <ReactCSSTransitionGroup
+                        className={styles.content}
+                        component="div"
+                        transitionName="fade"
+                    >
+                        {React.cloneElement(children, {
+                            key: location.pathname
+                        })}
+                    </ReactCSSTransitionGroup>
+                    <Footer />
+                </section>
             </section>
-            <Footer />
-        </section>
-    )
+        )
+    }
 }
 
 export default Root

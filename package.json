@@ -4,7 +4,7 @@
   "description": "my graduation project fe",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --process --colors --hot --inline --devtool eval --config ./build/webpack.dev.config.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --process --colors --hot --inline --hisotry-api-fallback --devtool eval --config ./build/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack -p --process --colors --config ./build/webpack.production.config.js",
     "mock": "json-server mock/db.js --routes mock/route.json --port 9999",
     "test": ""
@@ -17,6 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "es6-promise": "^4.0.5",
+    "postcss-loader": "^1.0.0",
+    "postcss-modules-values": "^1.2.2",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",

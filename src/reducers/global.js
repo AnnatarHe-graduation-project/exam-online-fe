@@ -5,8 +5,8 @@
  */
 
 import {
-    MENU_STATUS
-} from '../constants/global'
+    MENU_TOGGLE
+} from '../constants/menu'
 
 const init = {
     menu: false
@@ -14,8 +14,8 @@ const init = {
 
 const global = (state = init, action) => {
     switch (action.type) {
-        case MENU_STATUS:
-            return object.assign({}, state, {
+        case MENU_TOGGLE:
+            return Object.assign({}, state, {
                 menu: ! state.menu
             })
         default:

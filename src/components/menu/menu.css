@@ -1,0 +1,10 @@
+@value colors: "../../styles/variables.css";
+@value a-black, a-menu-width from colors;
+
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    background-color: a-black;
+    width: a-menu-width;
+}
+
+
