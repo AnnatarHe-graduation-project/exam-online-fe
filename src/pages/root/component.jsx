@@ -52,7 +52,6 @@ class Root extends React.Component {
                             key: location.pathname
                         })}
                     </ReactCSSTransitionGroup>
-                    <Footer />
                 </section>
             </section>
         )

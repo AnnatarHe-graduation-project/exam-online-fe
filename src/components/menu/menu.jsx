@@ -9,6 +9,8 @@ import { connect } from 'react-redux'
 import {
     menuToggle
 } from '../../actions/menu'
+import Navs from './navs'
+
 import styles from './menu.css'
 
 class Menu extends React.Component {
@@ -19,7 +21,10 @@ class Menu extends React.Component {
     render() {
         return (
             <nav className={styles.container}>
-                menu
+                <section className={styles.logo}>
+                    <h2>LOGO</h2>
+                </section>
+                <Navs />
             </nav>
         )
     }

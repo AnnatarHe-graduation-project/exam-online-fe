@@ -1,0 +1,21 @@
+
+/*
+ * 顶上的右边的四个链接按钮
+ */
+.go {
+    display: flex;
+    padding: 1rem;
+    composes: hover from '../../styles/mixin.css';
+}
+
+.right {
+    composes: header-bar from './header.css';
+    list-style: none;
+    flex-direction: row;
+    padding: 0 1rem;
+}
+
+.right .links {
+    padding: 1rem;
+}
+

@@ -1,10 +1,19 @@
 @value colors: "../../styles/variables.css";
-@value a-black, a-menu-width from colors;
+@value a-black, a-menu-width, a-header-height from colors;
 
 .container {
     composes: flexDesign from '../../styles/mixin.css';
     background-color: a-black;
     width: a-menu-width;
+    flex-direction: column;
 }
+
+.logo {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    height: a-header-height;
+    color: #fff;
+}
+
 
 

@@ -5,42 +5,40 @@
  */
 
 import React from 'react'
-import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import HeaderNavs from './navs'
+
+import {
+    menuToggle
+} from '../../actions/menu'
+
 import styles from './header.css'
 
-const Header = () => {
-    return (
-        <header className={styles.header}>
-            <section className={styles.left}>
-                <div className={styles.icon}>
-                    <i className="fa fa-bars fa-lg"></i>
-                </div>
-                <h3 className={styles.head}>Settings</h3>
-            </section>
-            <ul className={styles.right}>
-                <li className={styles.links}>
-                    <Link to="/" className={styles.go}>
-                        <i className="fa fa-search fa-lg"></i>
-                    </Link>
-                </li>
-                <li className={styles.links}>
-                    <Link to="/" className={styles.go}>
-                        <i className="fa fa-comment-o fa-lg"></i>
-                    </Link>
-                </li>
-                <li className={styles.links}>
-                    <Link to="/" className={styles.go}>
-                        <i className="fa fa-paper-plane-o fa-lg"></i>
-                    </Link>
-                </li>
-                <li className={styles.links}>
-                    <Link to="/" className={styles.go}>
-                        <i className="fa fa-user fa-lg"></i>
-                    </Link>
-                </li>
-            </ul>
-        </header>
-    )
+@connect()
+class Header extends React.Component {
+    constructor(props) {
+        super(props)
+        this.toggleMenu = this.toggleMenu.bind(this)
+    }
+
+    toggleMenu() {
+        this.props.dispatch(menuToggle())
+    }
+
+    render() {
+        return (
+            <header className={styles.header}>
+                <section className={styles.left} onClick={this.toggleMenu}>
+                    <div className={styles.icon}>
+                        <i className="fa fa-bars fa-lg"></i>
+                    </div>
+                    <h3 className={styles.head}>Settings</h3>
+                </section>
+
+                <HeaderNavs />
+            </header>
+        )
+    }
 }
 
 export default Header
