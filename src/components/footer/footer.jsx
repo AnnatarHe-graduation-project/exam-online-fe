@@ -6,11 +6,18 @@
 
 import React from 'react'
 
+import styles from './footer.css'
+
 const Footer = () => {
     return (
-        <div>
-            footer
-        </div>
+        <footer className={styles.footer}>
+            <div className={styles.copyright}>
+                <span>&copy; AnnatarHe</span>
+            </div>
+            <div className={styles.addr}>
+                <span>13 · 电子商务</span>
+            </div>
+        </footer>
     )
 }
 

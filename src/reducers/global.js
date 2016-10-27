@@ -9,7 +9,7 @@ import {
 } from '../constants/menu'
 
 const init = {
-    menu: true
+    menu: false
 }
 
 const global = (state = init, action) => {

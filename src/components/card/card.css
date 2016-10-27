@@ -1,0 +1,35 @@
+.card {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    width: 20rem;
+    border-radius: .1rem;
+    transition: all .35s;
+}
+
+.card:hover {
+    box-shadow: 0 0 1rem rgba(0,0,0, .5);
+}
+
+.image {
+    composes: flexDesign from '../../styles/mixin.css';
+    height: 20rem;
+    width: 100%;
+}
+
+.content {
+    color: #000;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.title {
+    margin: 0;
+}
+
+.desc {
+}
+
+
+
+
