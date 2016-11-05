@@ -13,7 +13,8 @@ const route = {
     indexRoute: { component: Index },
     childRoutes: [
         { path: '/index', component: Index},
-        require('./pages/home/route').default
+        require('./pages/home/route').default,
+        require('./pages/auth/route').default
     ]
 }
 

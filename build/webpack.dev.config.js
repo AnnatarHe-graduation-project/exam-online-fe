@@ -11,6 +11,9 @@ config.devtool = 'eval'
 config.devServer = {
     hot: true,
     inline: true,
+    hisoryApiFallback: {
+        index: '/'
+    },
     proxy: {
         '/api/*': {
             target: 'http://127.0.0.1:9999',

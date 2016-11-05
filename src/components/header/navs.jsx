@@ -24,7 +24,7 @@ class HeaderNavs extends React.Component {
                 to: '/'
             }, {
                 icon: 'user',
-                to: '/'
+                to: '/auth'
             }]
         }
     }

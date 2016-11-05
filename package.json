@@ -4,7 +4,7 @@
   "description": "my graduation project fe",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --process --colors --hot --inline --hisotry-api-fallback --devtool eval --config ./build/webpack.dev.config.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --process --colors --hot --inline --content-base . --hisotry-api-fallback --config ./build/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack -p --process --colors --config ./build/webpack.production.config.js",
     "mock": "json-server mock/db.js --routes mock/route.json --port 9999",
     "test": ""
@@ -24,6 +24,7 @@
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "whatwg-fetch": "^1.0.0"

@@ -1,0 +1,31 @@
+@value panel-width: 10rem;
+
+
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    min-height: 70vh;
+}
+
+.content {
+    box-shadow: 0 0 .3rem #888;
+    composes: flexDesign from '../../styles/mixin.css';
+    flex-direction: column;
+    width: panel-width;
+}
+
+.header {
+    width: panel-width;
+    composes: flexDesign from '../../styles/mixin.css';
+    flex: 1;
+
+}
+
+.body {
+    composes: flexDesign from '../../styles/mixin.css';
+}
+
+.footer {
+    composes: flexDesign from '../../styles/mixin.css';
+    flex: 1;
+}

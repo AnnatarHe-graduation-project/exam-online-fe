@@ -7,9 +7,6 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { connect } from 'react-redux'
-import {
-    menuToggle
-} from '../../actions/menu'
 
 import Header from '../../components/header/header'
 import Footer from '../../components/footer/footer'

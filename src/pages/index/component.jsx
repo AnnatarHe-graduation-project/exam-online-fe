@@ -35,6 +35,7 @@ class Index extends React.Component {
         return this.state.exams.map((exam, index) => {
             return (
                 <Card
+                    key={index}
                     to={exam.to}
                     title={exam.title}
                     desc={exam.desc}
