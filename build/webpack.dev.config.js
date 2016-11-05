@@ -4,16 +4,14 @@
  * @date 2016.10.20
  */
 
+const webpack = require('webpack')
 const config = require('./webpack.base.config')
 
 config.devtool = 'eval'
+config.plugins.push(new webpack.HotModuleReplacementPlugin())
 
 config.devServer = {
-    hot: true,
-    inline: true,
-    hisoryApiFallback: {
-        index: '/'
-    },
+    historyApiFallback: true,
     proxy: {
         '/api/*': {
             target: 'http://127.0.0.1:9999',
