@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import Ripple from '../../components/ripple/ripple'
 
 import styles from './auth.css'
 
@@ -21,7 +22,12 @@ class Auth extends React.Component {
                         header
                     </div>
                     <div className={ styles.body }>
-                        body
+                        <Ripple
+                            to="/auth"
+                            text="dddddd"
+                            className={ styles.link }
+                        >
+                        </Ripple>
                     </div>
                     <div className={ styles.footer }>
                         footer

@@ -29,3 +29,7 @@
     composes: flexDesign from '../../styles/mixin.css';
     flex: 1;
 }
+
+.link {
+    color: #000;
+}
