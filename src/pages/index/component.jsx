@@ -19,13 +19,13 @@ class Index extends React.Component {
         this.state = {
             exams: [{
                 to: '/exam/pay',
-                title: 'pay',
-                desc: 'fuck',
+                title: '电子支付',
+                desc: '电子支付课程考试',
                 image: '/assets/pay.jpg'
             }, {
                 to: '/exam/git',
-                title: 'git',
-                desc: 'fuck',
+                title: 'Git',
+                desc: '团队协作考试卷',
                 image: '/assets/git.png'
             }]
         }

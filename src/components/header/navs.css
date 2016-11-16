@@ -6,6 +6,11 @@
     display: flex;
     padding: 1rem;
     composes: hover from '../../styles/mixin.css';
+    color: #fff;
+}
+
+.go:visited {
+    color: #fff;
 }
 
 .right {
