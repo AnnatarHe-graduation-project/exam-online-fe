@@ -17,6 +17,7 @@ class Ripple extends React.Component {
         return (
             <Link to={this.props.to} className={ className }>
                 {this.props.text}
+                <span className=""></span>
             </Link>
         )
     }

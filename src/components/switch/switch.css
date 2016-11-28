@@ -1,0 +1,43 @@
+@value circle-size: 1rem;
+
+
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+
+}
+
+.display {
+    margin-left: 1rem;
+}
+
+.bar-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.bar {
+    width: 3rem;
+    height: .5rem;
+    border-radius: .3rem;
+    background-color: teal;
+}
+
+.pointer {
+    display: flex;
+    position: absolute;
+    top: -4px;
+    background-color: deeppink;
+    width: circle-size;
+    height: circle-size;
+    border-radius: 100%;
+    transition: all .35s;
+}
+
+.at-left {
+   left: 0;
+}
+
+.at-right {
+    right: 0;
+}

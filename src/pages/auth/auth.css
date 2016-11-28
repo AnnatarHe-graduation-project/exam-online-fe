@@ -1,4 +1,10 @@
-@value panel-width: 10rem;
+@value panel-width: 30rem;
+@value content-radius: .2rem;
+
+.minix-content-radius {
+    border-top-left-radius: content-radius;
+    border-top-right-radius: content-radius;
+}
 
 
 .container {
@@ -12,13 +18,23 @@
     composes: flexDesign from '../../styles/mixin.css';
     flex-direction: column;
     width: panel-width;
+    composes: minix-content-radius;
 }
 
 .header {
-    width: panel-width;
+    width: 100%;
     composes: flexDesign from '../../styles/mixin.css';
     flex: 1;
-
+    background-color: teal;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    composes: minix-content-radius;
+}
+.header h3 {
+    padding: 1rem;
+    margin: 0;
 }
 
 .body {
@@ -32,4 +48,25 @@
 
 .link {
     color: #000;
+}
+
+.to-login {
+    padding: 1rem;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    transition: all .35s;
+}
+
+.to-login:hover {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.to-login span {
+    display: flex;
+    color: #fff;
+}
+
+.to-login i {
+    color: #fff;
+    display: flex;
 }
