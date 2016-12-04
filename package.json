@@ -16,7 +16,6 @@
   "author": "'AnnatarHe' <'iamhele1994@gmail.com'>",
   "license": "MIT",
   "dependencies": {
-    "echarts": "^3.3.2",
     "es6-promise": "^4.0.5",
     "postcss-loader": "^1.0.0",
     "postcss-modules-values": "^1.2.2",
@@ -26,6 +25,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.7",
+    "recharts": "^0.19.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "whatwg-fetch": "^1.0.0"

@@ -865,6 +865,10 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
+classnames@^2.2.5:
+  version "2.2.5"
+  resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 clean-css@3.4.x:
   version "3.4.21"
   resolved "http://registry.npm.taobao.org/clean-css/download/clean-css-3.4.21.tgz#2101d5dbd19d63dbc16a75ebd570e7c33948f65b"
@@ -1045,7 +1049,7 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "http://registry.npm.taobao.org/core-js/download/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
-core-js@^2.4.0:
+core-js@^2.4.0, core-js@^2.4.1:
   version "2.4.1"
   resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
 
@@ -1198,6 +1202,60 @@ csso@~2.2.1:
     clap "^1.0.9"
     source-map "^0.5.3"
 
+d3-array@1:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/d3-array/download/d3-array-1.0.2.tgz#174237bf356a852fadd6af87743d928631de7655"
+
+d3-collection@1:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/d3-collection/download/d3-collection-1.0.2.tgz#df5acb5400443e9eabe9c1379896c67e52426b39"
+
+d3-color@1:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/d3-color/download/d3-color-1.0.2.tgz#83cb4b3a9474e40795f009d97e97a15649830bbc"
+
+d3-format@1:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/d3-format/download/d3-format-1.0.2.tgz#138618320b4bbeb43b5c0ff30519079fbbd7375e"
+
+d3-interpolate@1:
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/d3-interpolate/download/d3-interpolate-1.1.2.tgz#b52e6927a04fe1fe2a4cffc139e5389ed3e5e790"
+  dependencies:
+    d3-color "1"
+
+d3-path@1:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/d3-path/download/d3-path-1.0.3.tgz#60103d0dea9a6cd6ca58de86c6d56724002d3fde"
+
+d3-scale@^1.0.3:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/d3-scale/download/d3-scale-1.0.4.tgz#50e28bf6a193b706745528515ed9b3d44205a033"
+  dependencies:
+    d3-array "1"
+    d3-collection "1"
+    d3-color "1"
+    d3-format "1"
+    d3-interpolate "1"
+    d3-time "1"
+    d3-time-format "2"
+
+d3-shape@^1.0.3:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/d3-shape/download/d3-shape-1.0.4.tgz#145ee100ccbec42f8e3f1996cd05c786f79fe1c6"
+  dependencies:
+    d3-path "1"
+
+d3-time-format@2:
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/d3-time-format/download/d3-time-format-2.0.3.tgz#3241569b74ddc9c42e0689c0e8a903579fd6280a"
+  dependencies:
+    d3-time "1"
+
+d3-time@1:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/d3-time/download/d3-time-1.0.4.tgz#2ceba09a76b7450c992a1ded4e10fc6195e69649"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "http://registry.npm.taobao.org/dashdash/download/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -1327,12 +1385,6 @@ ecc-jsbn@~0.1.1:
   resolved "http://registry.npm.taobao.org/ecc-jsbn/download/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
   dependencies:
     jsbn "~0.1.0"
-
-echarts@^3.3.2:
-  version "3.3.2"
-  resolved "http://registry.npm.taobao.org/echarts/download/echarts-3.3.2.tgz#06f42a47d213248d45fe585719ec8940fdc610aa"
-  dependencies:
-    zrender "^3.2.1"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -2759,6 +2811,10 @@ pbkdf2-compat@2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/pbkdf2-compat/download/pbkdf2-compat-2.0.1.tgz#b6e0c8fa99494d94e0511575802a59a5c142f288"
 
+performance-now@~0.2.0:
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/performance-now/download/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "http://registry.npm.taobao.org/pify/download/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -3155,6 +3211,12 @@ querystringify@0.0.x:
   version "0.0.4"
   resolved "http://registry.npm.taobao.org/querystringify/download/querystringify-0.0.4.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
 
+raf@^3.2.0:
+  version "3.3.0"
+  resolved "http://registry.npm.taobao.org/raf/download/raf-3.3.0.tgz#93845eeffc773f8129039f677f80a36044eee2c3"
+  dependencies:
+    performance-now "~0.2.0"
+
 randomatic@^1.1.3:
   version "1.1.6"
   resolved "http://registry.npm.taobao.org/randomatic/download/randomatic-1.1.6.tgz#110dcabff397e9dcff7c0789ccc0a49adf1ec5bb"
@@ -3187,6 +3249,10 @@ react-addons-css-transition-group@^15.3.2:
   version "15.4.1"
   resolved "http://registry.npm.taobao.org/react-addons-css-transition-group/download/react-addons-css-transition-group-15.4.1.tgz#60b133fac5116e4009e56ab0674dc2ddcc1a18f6"
 
+"react-addons-transition-group@^0.14.0 || ^15.0.0":
+  version "15.4.1"
+  resolved "http://registry.npm.taobao.org/react-addons-transition-group/download/react-addons-transition-group-15.4.1.tgz#27d92717089c5e2db202e654a85b76a41b703acc"
+
 react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/react-deep-force-update/download/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
@@ -3215,6 +3281,10 @@ react-redux@^4.4.5:
     lodash "^4.2.0"
     loose-envify "^1.1.0"
 
+react-resize-detector@^0.3.3:
+  version "0.3.3"
+  resolved "http://registry.npm.taobao.org/react-resize-detector/download/react-resize-detector-0.3.3.tgz#ca07443072324843586666d9443a6356da7c0501"
+
 react-router-redux@^4.0.7:
   version "4.0.7"
   resolved "http://registry.npm.taobao.org/react-router-redux/download/react-router-redux-4.0.7.tgz#9b1fde4e70106c50f47214e12bdd888cfb96e2a6"
@@ -3228,6 +3298,14 @@ react-router@^2.8.1:
     invariant "^2.2.1"
     loose-envify "^1.2.0"
     warning "^3.0.0"
+
+react-smooth@^0.1.15:
+  version "0.1.17"
+  resolved "http://registry.npm.taobao.org/react-smooth/download/react-smooth-0.1.17.tgz#0810990fdcbb5a5ceaf1fc4ebcb00f255f8e8935"
+  dependencies:
+    lodash "^4.16.4"
+    raf "^3.2.0"
+    react-addons-transition-group "^0.14.0 || ^15.0.0"
 
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
@@ -3321,6 +3399,24 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
+recharts-scale@^0.2.1:
+  version "0.2.1"
+  resolved "http://registry.npm.taobao.org/recharts-scale/download/recharts-scale-0.2.1.tgz#378f543ed17c3245e4d9afb10aaf6298240d2fcb"
+
+recharts@^0.19.0:
+  version "0.19.0"
+  resolved "http://registry.npm.taobao.org/recharts/download/recharts-0.19.0.tgz#228ac3558a60c48a14f54f087baafdb5d856398a"
+  dependencies:
+    classnames "^2.2.5"
+    core-js "^2.4.1"
+    d3-scale "^1.0.3"
+    d3-shape "^1.0.3"
+    lodash "^4.16.4"
+    react-resize-detector "^0.3.3"
+    react-smooth "^0.1.15"
+    recharts-scale "^0.2.1"
+    reduce-css-calc "^1.3.0"
+
 redbox-react@^1.2.2, redbox-react@^1.3.2:
   version "1.3.3"
   resolved "http://registry.npm.taobao.org/redbox-react/download/redbox-react-1.3.3.tgz#63ec9c2cb9c620c46e2b9f8543b4898f1b787e41"
@@ -3328,7 +3424,7 @@ redbox-react@^1.2.2, redbox-react@^1.3.2:
     error-stack-parser "^1.3.6"
     object-assign "^4.0.1"
 
-reduce-css-calc@^1.2.6:
+reduce-css-calc@^1.2.6, reduce-css-calc@^1.3.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/reduce-css-calc/download/reduce-css-calc-1.3.0.tgz#747c914e049614a4c9cfbba629871ad1d2927716"
   dependencies:
@@ -4227,7 +4323,3 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-zrender@^3.2.1:
-  version "3.2.2"
-  resolved "http://registry.npm.taobao.org/zrender/download/zrender-3.2.2.tgz#b33d250456859944a48c4f3550986168a0952ec5"
