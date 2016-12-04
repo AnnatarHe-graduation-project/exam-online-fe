@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import styles from './dashboard.css'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -13,9 +14,10 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <div>
+            <section className={styles.container}>
                 dashboard
-            </div>
+                {this.props.children}
+            </section>
         )
     }
 }

@@ -8,6 +8,10 @@ import React from 'react'
 import Switch from '../../components/switch/switch'
 import { connect } from 'react-redux'
 
+import {
+    requestLogin
+} from './actions'
+
 import styles from './login.css'
 
 @connect()
@@ -35,6 +39,15 @@ class Login extends React.Component {
     doLogin(e) {
         e.preventDefault()
         const { id, pwd, type } = this.state
+        const requestData = {
+            id,
+            pwd,
+            type
+        }
+
+        // TODO:
+        // do a action to login
+        this.props.dispatch(requestLogin(requestData))
     }
 
     render() {

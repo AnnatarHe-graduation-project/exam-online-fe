@@ -16,6 +16,7 @@
   "author": "'AnnatarHe' <'iamhele1994@gmail.com'>",
   "license": "MIT",
   "dependencies": {
+    "echarts": "^3.3.2",
     "es6-promise": "^4.0.5",
     "postcss-loader": "^1.0.0",
     "postcss-modules-values": "^1.2.2",

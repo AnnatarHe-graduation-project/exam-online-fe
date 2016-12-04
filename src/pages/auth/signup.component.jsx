@@ -5,22 +5,57 @@
  */
 
 import React from 'react'
-// import Ripple from '../../components/ripple/ripple'
-import { Link } from 'react-router'
-import styles from './auth.css'
+import Switch from '../../components/switch/switch'
+import styles from './login.css'
 
-class Auth extends React.Component {
+class Signup extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            id: '',
+            pwd: '',
+            type: true
+        }
+        this.doSignup = this.doSignup.bind(this)
+        this.selectType = this.selectType.bind(this)
+    }
+
+    selectType() {
+        this.setState({
+            type: ! this.state.type
+        })
+    }
+
+    doSignup(e) {
+        e.preventDefault()
     }
 
     render() {
         return (
-            <div>signup</div>
+            <section className={styles.loginContainer}>
+                <form onSubmit={this.doSignup} className={`form-container`}>
+                    <div className="form-group">
+                        <input className="form-control" type="text" value={this.state.id} placeholder="学号/教师号"/>
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="password" value={this.state.pwd} placeholder="密码"/>
+                    </div>
+                    <div className="form-group form-center">
+                        <Switch
+                            pos={this.state.type}
+                            desc={this.state.type ? '学生' : '教师'}
+                            onChange={this.selectType} />
+                    </div>
+                    <div className="form-group form-center">
+                        <button onSubmit={this.doSignup} type="submit" className="btn btn-submit btn-lg btn-radius"> 注册 </button>
+                    </div>
+                </form>
+            </section>
         )
     }
 }
 
 
-export default Auth
+export default Signup
 

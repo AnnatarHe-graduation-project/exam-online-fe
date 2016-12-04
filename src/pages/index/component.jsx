@@ -48,7 +48,7 @@ class Index extends React.Component {
     render() {
         return (
             <section className={styles.container}>
-                <Wrap to="/student/exam" hero="从这里开始，进阶真正的学霸" />
+                <Wrap to="/exam" hero="从这里开始，进阶真正的学霸" />
                 <Cards>
                     {this.examRender()}
                 </Cards>
