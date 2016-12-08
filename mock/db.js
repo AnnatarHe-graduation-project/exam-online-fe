@@ -44,6 +44,7 @@ module.exports = function() {
             title: '电子支付清算',
             alert: '请加油～',
             score: '2',
+            hero: faker.image.image(),
             questions
         }]
     }

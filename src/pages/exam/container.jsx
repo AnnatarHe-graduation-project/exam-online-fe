@@ -9,37 +9,27 @@ import { connect } from 'react-redux'
 import {
     fetchPaper
 } from './actions'
-import FinishedExam from './finished'
+
+import styles from './container.css'
 
 @connect()
 class Exam extends React.Component {
     constructor(props) {
         super(props)
-
-        // id
-        // this.props.params.id
-
-        this.state ={
-        }
     }
 
     componentDidMount() {
         this.props.dispatch(fetchPaper(this.props.params.id))
     }
 
-
     render() {
         return (
-            <section>
-                examing
-                <div>
-                    {this.props.children}
-                </div>
+            <section className={styles.container} >
+                { this.props.children}
             </section>
         )
     }
 }
 
 export default Exam
-
 

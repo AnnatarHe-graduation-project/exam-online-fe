@@ -1,0 +1,9 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.text {
+    padding-top: 1rem;
+}

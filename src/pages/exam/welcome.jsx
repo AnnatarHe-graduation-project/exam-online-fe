@@ -6,12 +6,18 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
+import Loading from '../../components/loading/loading'
+import styles from './welcome.css'
 
 @connect((store) => {
+    const { title, alert, score, hero } = store.exam.paper
     return {
-        title: store.exam.paper,
-        alert: store.exam.alert,
-        score: store.exam.score
+        loading: store.exam.loading,
+        title,
+        alert,
+        score,
+        hero
     }
 })
 class Welcome extends React.Component {
@@ -20,9 +26,25 @@ class Welcome extends React.Component {
     }
 
     render() {
+        if (this.props.loading) {
+            return <Loading />
+        }
+
+        const { title, alert, score, hero } = this.props
+
         return (
-            <div>
-                welcome
+            <div className={styles.welcome}>
+                <div className={styles.heroContainer}>
+                    <img src={hero} className={styles.hero} />
+                </div>
+                <div className={styles.content}>
+                    <h3>{ title }</h3>
+                    <p>{ alert }</p>
+                    <span> 可获得学分: <strong className="notice">{ score }</strong></span>
+                    <div className={styles.button}>
+                        <Link to={`/exam/${this.props.params.id}/examing`} className="btn btn-lg btn-submit btn-center btn-radius"> 现在开始测验 &nbsp;<i className="fa fa-arrow-right fa-lg"></i> </Link>
+                    </div>
+                </div>
             </div>
         )
     }

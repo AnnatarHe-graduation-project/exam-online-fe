@@ -29,7 +29,8 @@ const init = {
         id: 0,
         title: '',
         alert: '',
-        score: ''
+        score: '',
+        hero: ''
     },
     questions: []
 }

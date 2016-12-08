@@ -1,0 +1,41 @@
+@value image-size: 30rem;
+.welcome {
+    width: 100%;
+    composes: flexDesign from '../../styles/mixin.css';
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hero-container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex: 2;
+}
+
+.hero {
+    width: image-size;
+    height: image-size;
+}
+
+.content {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex: 1;
+    flex-direction: column;
+}
+
+.button {
+    padding: 1rem 0;
+}
+
+.button:hover i {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.button i {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all .35s;
+}
