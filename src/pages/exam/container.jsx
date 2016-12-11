@@ -25,7 +25,7 @@ class Exam extends React.Component {
     render() {
         return (
             <section className={styles.container} >
-                { this.props.children}
+                { this.props.children }
             </section>
         )
     }

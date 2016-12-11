@@ -71,6 +71,10 @@ const config = {
         new ExtractTextPlugin('app.css', {
             disable: false,
             allChunks: true
+        }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('../dist/manifest.json')
         })
     ],
     resolve: {

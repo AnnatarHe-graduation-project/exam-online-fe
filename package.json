@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --process --colors --hot --inline --content-base . --hisotry-api-fallback --config ./build/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack -p --process --colors --config ./build/webpack.production.config.js",
+    "dll": "cross-env NODE_ENV=development webpack --process --colors --config ./build/webpack.dll.config.js",
     "mock": "json-server mock/db.js --routes mock/route.json --port 9999",
     "test": ""
   },
