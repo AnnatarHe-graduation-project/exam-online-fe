@@ -1,9 +1,26 @@
+
+$blue = hsla(217, 89%, 61%, 1)
+$red = hsla(5, 81%, 56%, 1)
+
+btn-color-render(color)
+    background-color color
+    color #fff
+    transition all .35s
+    &:hover
+        background-color darken(color, 10%)
+
+
 .btn
     border none
+    cursor pointer
     &.btn-lg
         padding .5rem 1rem
     &.btn-radius
         border-radius .2rem
+    &.btn-blue
+        btn-color-render($blue)
+    &.btn-red
+        btn-color-render($red)
     &.btn-submit
         background-color teal
         color #fff
@@ -15,4 +32,9 @@
         display flex
         align-items center
         justify-content center
+    &:disabled
+        background-color grey
+        cursor default
+        &:hover
+            background-color grey
 

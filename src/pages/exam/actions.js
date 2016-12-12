@@ -62,3 +62,39 @@ export const fetchPaper = id => {
     }
 }
 
+export const nextQuestion = current => {
+    return { type: NEXT_QUESTION }
+}
+
+export const prevQuestion = current => {
+    return { type: PREV_QUESTION }
+}
+
+// ----------------------------------------- submit paper ------------------------------------
+
+const finishedPaper = () => {
+    return {
+        type: PUSHED_SCORE
+    }
+}
+
+export const submitPaperResult = score => {
+    return (dispatch, getState) => {
+
+        // 需要获取用户数据，用以传递
+        const state = getState()
+        const paperID = state.exam.paper.id
+        const userID = 1
+        return fetch(`/api/user/finished/${paperID}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                score
+            })
+        })
+            .then(res => res.json())
+            .then(res => {
+                dispatch(finishedPaper())
+            })
+    }
+}
+

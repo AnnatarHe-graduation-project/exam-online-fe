@@ -1,0 +1,28 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    width: 100%;
+}
+
+.question {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.list {
+    padding: 0;
+    width: 100%;
+}
+
+.item {
+    padding: .3rem;
+    margin: .5rem;
+    background-color: hsla(45, 97%, 50%, 1);
+    color: #fff;
+    transition: all .35s;
+}
+
+.item:hover {
+    background-color: hsla(50, 97%, 50%, 1);
+}

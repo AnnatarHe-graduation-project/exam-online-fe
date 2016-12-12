@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    padding: 1rem;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.nav {
+    width: 100%;
+    composes: flexDesign from '../../styles/mixin.css';
+    align-items: center;
+    justify-content: space-around;
+}

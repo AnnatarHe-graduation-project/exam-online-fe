@@ -7,6 +7,9 @@
 import React from 'react'
 import styles from './question.css'
 
+
+const options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N']
+
 class Question extends React.Component {
     constructor(props) {
         super(props)
@@ -24,17 +27,15 @@ class Question extends React.Component {
             const sendScore = this.sendScore.bind(this, index)
             return (
                 <li key={ index }
+                    className={ styles.item }
                     onClick={ sendScore }
-                >{ ans }</li>
+                >{ `${options[index]}. ${ans}` }</li>
             )
         })
     }
 
-
-
     render() {
         const question = this.props.question
-        console.log(question)
         return (
             <article className={ styles.container }>
                 <div className={ styles.question }>
@@ -42,7 +43,7 @@ class Question extends React.Component {
                         <h2>{ question.title }</h2>
                         <p>{ question.content }</p>
                     </div>
-                    <ol>
+                    <ol className={ styles.list }>
                         { this.answersRender(question.answers) }
                     </ol>
                 </div>

@@ -6,6 +6,8 @@
 
 const faker = require('faker')
 
+const word = faker.lorem.word
+
 const exams = (function() {
     let _exams = []
     for (let i = 0; i < 100; i++) {
@@ -24,8 +26,8 @@ for (let i = 1; i < 21; i++) {
     questions.push({
         id: i,
         title: faker.lorem.words(),
-        content: `请选择以下哪种不是电子支付方式：`,
-        answers: ["Alipay", "Wechat pay", "Paypal", "现金"],
+        content: faker.lorem.paragraph(),
+        answers: [word(), word(), word(), word()],
         right: 3,
         hasBug: 0,
         score: 5,
