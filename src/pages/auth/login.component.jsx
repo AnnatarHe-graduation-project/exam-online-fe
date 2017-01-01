@@ -55,10 +55,20 @@ class Login extends React.Component {
             <section className={styles.loginContainer}>
                 <form onSubmit={this.doLogin} className={`form-container`}>
                     <div className="form-group">
-                        <input className="form-control" type="text" value={this.state.id} placeholder="学号/教师号"/>
+                        <input
+                            className="form-control"
+                            type="text"
+                            value={this.state.id}
+                            onChange={e => this.setState({ id: e.target.value.trim()})}
+                            placeholder="学号/教师号"/>
                     </div>
                     <div className="form-group">
-                        <input className="form-control" type="password" value={this.state.pwd} placeholder="密码"/>
+                        <input
+                            className="form-control"
+                            type="password"
+                            value={this.state.pwd}
+                            onChange={e => this.setState({ pwd: e.target.value.trim()})}
+                            placeholder="密码"/>
                     </div>
                     <div className="form-group form-center">
                         <Switch

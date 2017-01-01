@@ -3,6 +3,27 @@
  * @email iamhele1994@gmail.com
  * @date 2016/11/28
  */
+import { push } from 'react-router-redux'
+import { getRole } from '../../utils/model'
+
+const mockResponseProfile = {
+    "data": {
+        "CreatedAt": "2017-01-01T10:39:07.187649Z",
+        "DeletedAt": null,
+        "ID": 13,
+        "UpdatedAt": "2017-01-01T10:39:07.187649Z",
+        "avatar": "",
+        "name": "AnnatarHe",
+        "news": null,
+        "paperDone": "[{\"0\":0}]",
+        "papers": null,
+        "pwd": "aaa",
+        "role": 11,
+        "schoolId": "01111111"
+    },
+    "err": "",
+    "status": 200
+}
 
 import {
     DO_LOGOUT,
@@ -11,6 +32,7 @@ import {
     DO_FAIL,
     DO_FAIL_RESET
 } from './constants'
+import {setProfile} from '../public/actions/profile'
 
 const loginSuccess = profile => {
     return {
@@ -33,18 +55,21 @@ const loginFail = err => {
  */
 export const requestLogin = data => {
     return dispatch => {
-        return fetch('/api/auth/login', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
+        // return fetch('/api/auth/login', {
+        //     method: 'POST',
+        //     body: JSON.stringify(data)
+        // })
+        //     .then(res => res.json())
+        return Promise.resolve(mockResponseProfile)
             .then(res => {
                 dispatch(loginSuccess(res))
+                dispatch(setProfile(res.data))
+                // redirect to dashboard
+                dispatch(push('/dashboard/' + getRole(res.data.role)))
             })
             .catch(err => {
                 dispatch(loginFail(err))
             })
-
     }
 }
 

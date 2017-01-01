@@ -8,11 +8,12 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import global from './global'
 import exam from '../pages/exam/reducer'
-
+import profile from '../pages/home/reducer'
 const rootReducer = combineReducers({
     routing: routerReducer,
     global,
-    exam
+    exam,
+    profile
 })
 
 export default rootReducer

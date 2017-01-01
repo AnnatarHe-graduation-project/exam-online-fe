@@ -7,13 +7,16 @@
 import React from 'react'
 import Switch from '../../components/switch/switch'
 import styles from './login.css'
-
+import {
+    requestSignup
+} from './actions'
 class Signup extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             id: '',
+            name: '',
             pwd: '',
             type: true
         }
@@ -29,6 +32,12 @@ class Signup extends React.Component {
 
     doSignup(e) {
         e.preventDefault()
+        this.props.dispatch(requestSignup({
+            username: this.state.name,
+            pwd: this.state.pwd,
+            school_id: this.state.id,
+            role: this.state.type ? 'student' : 'teacher'
+        }))
     }
 
     render() {
@@ -36,10 +45,28 @@ class Signup extends React.Component {
             <section className={styles.loginContainer}>
                 <form onSubmit={this.doSignup} className={`form-container`}>
                     <div className="form-group">
-                        <input className="form-control" type="text" value={this.state.id} placeholder="学号/教师号"/>
+                        <input
+                            className="form-control"
+                            type="text"
+                            value={this.state.name}
+                            onChange={e => this.setState({name: e.target.value.trim()})}
+                            placeholder="用户名"/>
                     </div>
                     <div className="form-group">
-                        <input className="form-control" type="password" value={this.state.pwd} placeholder="密码"/>
+                        <input
+                            className="form-control"
+                            type="text"
+                            value={this.state.id}
+                            onChange={e => this.setState({id: e.target.value.trim()})}
+                            placeholder="学号/教师号"/>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            className="form-control"
+                            type="password"
+                            value={this.state.pwd}
+                            onChange={e => this.setState({pwd: e.target.value})}
+                            placeholder="密码"/>
                     </div>
                     <div className="form-group form-center">
                         <Switch
