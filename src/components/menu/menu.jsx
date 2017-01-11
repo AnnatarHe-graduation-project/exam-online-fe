@@ -13,21 +13,15 @@ import Navs from './navs'
 
 import styles from './menu.css'
 
-class Menu extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        return (
-            <nav className={styles.container}>
-                <section className={styles.logo}>
-                    <h2>LOGO</h2>
-                </section>
-                <Navs />
-            </nav>
-        )
-    }
+const Menu = () => {
+    return (
+        <nav className={styles.container}>
+            <section className={styles.logo}>
+                <h2>LOGO</h2>
+            </section>
+            <Navs />
+        </nav>
+    )
 }
 
 export default Menu

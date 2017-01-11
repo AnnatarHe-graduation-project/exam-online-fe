@@ -7,13 +7,11 @@
 import React from 'react'
 import styles from './question.css'
 
-
 const options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N']
 
-class Question extends React.Component {
+class Question extends React.PureComponent {
     constructor(props) {
         super(props)
-
     }
 
     // 如果选对了就返回分数，否则给零分

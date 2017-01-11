@@ -9,7 +9,7 @@ import { Link } from 'react-router'
 
 import styles from './navs.css'
 
-class Navs extends React.Component {
+class Navs extends React.PureComponent {
     constructor(props) {
         super(props)
 

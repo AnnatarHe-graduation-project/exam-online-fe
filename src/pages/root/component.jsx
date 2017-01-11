@@ -22,7 +22,7 @@ const mapStateToProps = (state) => {
 }
 
 @connect(mapStateToProps)
-class Root extends React.Component {
+class Root extends React.PureComponent {
     constructor(props) {
         super(props)
     }
