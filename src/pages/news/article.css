@@ -1,0 +1,21 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+
+}
+
+.hero {
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.content {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    max-width: 80rem;
+}
+
+.title {
+    font-size: 2rem;
+
+}

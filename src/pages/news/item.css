@@ -1,0 +1,22 @@
+.item-container {
+    composes: flexDesign from '../../styles/mixin.css';
+    flex-direction: row;
+    padding: .5rem;
+    box-shadow: 0 0 .5rem #888;
+    height: 5rem;
+}
+
+.image {
+    composes: flexDesign from '../../styles/mixin.css';
+    flex: 3;
+}
+
+.title-container {
+    composes: flexDesign from '../../styles/mixin.css';
+    flex: 1
+}
+
+.extras {
+    color: #e3e3e3;
+    font-size: .7rem;
+}

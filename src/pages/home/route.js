@@ -7,7 +7,7 @@
 import Dashboard from './component'
 import StudentDashboard from './student/student'
 
-const route = {
+const route = [{
     path: 'dashboard',
     component: Dashboard,
     indexRoute: {component: StudentDashboard},
@@ -19,7 +19,7 @@ const route = {
             })
         }}
     ]
-}
+}]
 
 export default route
 

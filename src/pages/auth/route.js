@@ -23,7 +23,7 @@ import Login from './login.component'
 //     }
 // }]
 
-const route = {
+const route = [{
     path: 'auth',
     component: Auth,
     indexRoute: { component: Login},
@@ -38,7 +38,7 @@ const route = {
             })
         }
     }]
-}
+}]
 
 export default route
 

@@ -7,7 +7,7 @@
 import Container from './container'
 import Welcome from './welcome'
 
-const route = {
+const route = [{
     path: '/exam/:id',
     component: Container,
     indexRoute: { component: Welcome },
@@ -24,6 +24,6 @@ const route = {
             })
         }}
     ]
-}
+}]
 
 export default route

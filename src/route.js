@@ -7,15 +7,20 @@
 import Root from './pages/root/component'
 import Index from './pages/index/component'
 
+function getRoute(component) {
+    return require(`./pages/${component}/route`).default
+}
+
 const route = {
     path: '/',
     component: Root,
     indexRoute: { component: Index },
     childRoutes: [
         { path: '/index', component: Index},
-        require('./pages/home/route').default,
-        require('./pages/auth/route').default,
-        require('./pages/exam/route').default,
+        ...getRoute('home'),
+        ...getRoute('auth'),
+        ...getRoute('exam'),
+        ...getRoute('news')
     ]
 }
 

@@ -1,0 +1,15 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    padding: 0 0 0 .5rem;
+    border-left: 1px solid #888888;
+}
+
+.li-item {
+    font-size: 1rem;
+    padding: .5rem 0;
+}
+
+.li-item:first-child {
+    font-size: 1.3rem;
+    color: red;
+}
