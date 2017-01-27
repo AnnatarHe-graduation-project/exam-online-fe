@@ -30,25 +30,30 @@ class Examing extends React.Component {
         this.state = {
             scores: []
         }
+        this.getScore = this.getScore.bind(this)
+        this.prev = this.prev.bind(this)
+        this.next = this.next.bind(this)
+        this.submit = this.submit.bind(this)
+
     }
 
     // 得到的是成绩哦，不是选项
-    getScore = score => {
+    getScore(score) {
         let scores = this.state.scores
         scores[this.props.current] = score
         this.setState({ scores: scores })
     }
 
-    prev = e => {
+    prev(e) {
         this.props.dispatch(prevQuestion(this.props.current))
     }
-    next = e => {
+    next(e) {
         this.props.dispatch(nextQuestion(this.props.current))
     }
 
-    submit = () => {
+    submit() {
         const sum = this.state.scores.reduce((cur, nex) => cur + nex)
-        this.props.sumit(sum)
+        this.props.submit(sum)
         // this.props.dispatch(submitPaperResult(sum))
     }
 
