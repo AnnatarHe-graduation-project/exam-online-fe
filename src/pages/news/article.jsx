@@ -24,20 +24,27 @@ class Article extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.routing.pathname
+        const id = this.props.params.id
         this.props.getArticle(id)
     }
     render() {
         if (! this.props.article.id) {
             return <Loading />
         }
+        const { article } = this.props
         return (
             <article className={styles.container}>
                 <div className={styles.hero} style={{
-                    backgroundImage: this.props.article.hero
+                    backgroundImage: `url(${article.bg})`
                 }}></div>
                 {/* set dangour html here */}
                 <div className={styles.content}>
+                    <h2 className={styles.title}>{ article.title}</h2>
+                    <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: article.content }} />
+                    <div className={styles.extra}>
+                        <span className={styles.opinion}><i className="fa fa-lg fa-thumbs-o-up" /> {article.up}</span>
+                        <span className={styles.opinion}><i className="fa fa-lg fa-thumbs-o-down" /> {article.down}</span>
+                    </div>
                 </div>
             </article>
         )

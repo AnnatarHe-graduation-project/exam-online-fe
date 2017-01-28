@@ -9,11 +9,12 @@ import { Link } from 'react-router'
 import styles from './item.css'
 
 // article item.
-const Item = ({ id, title, img}) => {
+const Item = ({ id, title, img }) => {
     return (
-        <article className={styles.itemContainer}>
+        <article className={styles.itemContainer} style={{
+            backgroundImage: `url(${img})`
+        }}>
             <Link to={`/news/${id}`}>
-                <img src={img} alt="article image" className={styles.image} />
                 <div className={styles.titleContainer}>
                     <h3 className={styles.title}>{ title }</h3>
                 </div>

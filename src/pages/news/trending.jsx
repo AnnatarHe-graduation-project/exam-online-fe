@@ -13,7 +13,7 @@ const Trending = ({ lists }) => {
         <ol className={styles.container}>
             { lists.slice(10).map((list, index) => {
                 return (
-                    <li className={styles.liItem}>
+                    <li className={styles.liItem} key={index}>
                         <Link className={styles.linkItem}>{ list.title }</Link>
                     </li>
                 )

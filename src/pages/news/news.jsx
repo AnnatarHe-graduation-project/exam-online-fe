@@ -10,6 +10,7 @@ import Loading from '../../components/loading/loading'
 import ArticleItem from './item'
 import Trending from './trending'
 import Cards from '../../components/cards/cards'
+import styles from './news.css'
 import {
     getArticles,
     getTrendings
@@ -31,7 +32,7 @@ class News extends React.Component {
 
     articleItemRender() {
         return this.props.articles.map(
-                (article, index) => <ArticleItem key={index} id={article.id} title={article.title} img={article.img} />
+                (article, index) => <ArticleItem key={index} id={article.id} title={article.title} img={article.bg} />
             )
     }
     render() {
@@ -40,7 +41,7 @@ class News extends React.Component {
         }
         return (
             <section>
-                <Cards>
+                <Cards className={styles.newsCardContainer}>
                     { this.articleItemRender() }
                 </Cards>
                 <Trending lists={this.props.trendings} />

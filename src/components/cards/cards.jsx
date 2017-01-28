@@ -7,9 +7,10 @@
 import React from 'react'
 import styles from './cards.css'
 
-const Cards = ({ children }) => {
+const Cards = ({ children, className }) => {
+    const cls = className ? styles.cards + ' ' + className : styles.cards
     return (
-        <section className={styles.cards}>
+        <section className={cls}>
             {children}
         </section>
     )

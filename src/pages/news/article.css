@@ -1,21 +1,44 @@
 .container {
     composes: flexDesign from '../../styles/mixin.css';
     composes: center from '../../styles/mixin.css';
-
+    flex-direction: column;
 }
 
 .hero {
     background-position: 50% 50%;
     background-size: cover;
+    height: 30rem;
+    width: 100%;
 }
 
 .content {
     composes: flexDesign from '../../styles/mixin.css';
     composes: center from '../../styles/mixin.css';
+    flex-direction: column;
     max-width: 80rem;
 }
 
 .title {
     font-size: 2rem;
-
 }
+.paragraph {
+    padding: 0 1rem;
+}
+
+.extra {
+    height: 2rem;
+    width: 15rem;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    align-items: center;
+    justify-content: space-around;
+}
+
+.opinion {
+    composes: flexDesign from '../../styles/mixin.css';
+}
+
+.opinion .i {
+    padding-right: .3rem;
+}
+

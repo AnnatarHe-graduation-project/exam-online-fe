@@ -1,9 +1,25 @@
 .item-container {
     composes: flexDesign from '../../styles/mixin.css';
-    flex-direction: row;
+    flex-direction: column;
     padding: .5rem;
     box-shadow: 0 0 .5rem #888;
-    height: 5rem;
+    height: 10rem;
+    background-position: 50% 50%;
+    background-size: cover;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.item-container a {
+    color: #fff;
+}
+
+.item-container a:visited {
+    color: #fff;
+}
+
+.item-container:last-child {
+    margin-bottom: 0;
 }
 
 .image {
