@@ -36,6 +36,13 @@
 
 .opinion {
     composes: flexDesign from '../../styles/mixin.css';
+    cursor: pointer;
+    transition: all .35s ease;
+}
+
+.opinion.active {
+    color: red;
+
 }
 
 .opinion .i {
