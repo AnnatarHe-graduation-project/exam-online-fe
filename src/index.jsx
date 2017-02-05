@@ -5,26 +5,24 @@
  */
 
 import React from 'react'
-import {render} from 'react-dom'
-import {Provider} from 'react-redux'
-import {Router, browserHistory} from 'react-router'
-import {syncHistoryWithStore} from 'react-router-redux'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import Root from './root'
 
-import store from './store/index'
-import routes from './route'
-
-const history = syncHistoryWithStore(browserHistory, store)
-
-const App = () => {
-    return (
-        <Provider store={store}>
-            <Router
-                history={browserHistory}
-                routes={routes}/>
-        </Provider>
-    )
+const realRender = Component => {
+    render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.body.appendChild(document.createElement('div')))
 }
 
-render(<App />, document.body.appendChild(document.createElement('div')))
 
+realRender(Root)
+
+if (module.hot) {
+    module.hot.accept('./root', () => {
+        realRender(Root)
+    })
+}
 

@@ -21,12 +21,12 @@ class Index extends React.Component {
                 to: '/exam/1',
                 title: '电子支付',
                 desc: '电子支付课程考试',
-                image: '/assets/pay.jpg'
+                image: require('../../../assets/pay.jpg')
             }, {
                 to: '/exam/2',
                 title: 'Git',
                 desc: '团队协作考试卷',
-                image: '/assets/git.png'
+                image: require('../../../assets/git.png')
             }]
         }
     }

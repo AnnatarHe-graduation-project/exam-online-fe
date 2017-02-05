@@ -18,67 +18,88 @@ const config = {
         './src/index.jsx'
     ],
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '..', 'dist'),
         publicPath: '/',
         filename: 'bundle.[hash].js'
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel'
+            exclude: [path.resolve(__dirname, '..', 'node_modules')],
+            use: ['babel-loader']
         }, {
             test: /.styl$/,
             exclude: /node_modules/,
-            loader: ExtractTextPlugin.extract('style', 'css-loader!stylus-loader')
+            loader: ExtractTextPlugin.extract({
+                fallbackLoader: 'style-loader',
+                loader: [ 'css-loader', 'stylus-loader' ]
+            })
         }, {
             test: /.css$/,
             exclude: /node_modules/,
-            loader: ExtractTextPlugin.extract('style', 'css-loader?modules&camelCase!postcss-loader')
+            loader: ExtractTextPlugin.extract({
+                fallbackLoader: 'style-loader',
+                loader: [
+                    'css-loader?modules=true&camelCase=true',
+                    'postcss-loader'
+                ]
+            })
         }, {
             test: /\.(png|jpg|jpeg|gif)$/,
-            loader: 'url-loader?limit=8192'
+            use: [{loader: 'url-loader', options: {limit: 500, name: '[name]-[hash].[ext]'}}]
         }, {
             test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=application/font-woff"
+            use: [{loader: 'url-loader', options: {limit: 10000, mimetype: 'application/font-woff'}}]
         }, {
             test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=application/font-woff"
+            use: [{loader: 'url-loader', options: {limit: 10000, mimetype: 'application/font-woff'}}]
         }, {
             test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=application/octet-stream"
+            use: [{loader: 'url-loader', options: {limit: 10000, mimetype: 'application/octet-stream'}}]
         }, {
             test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "file"
+            use: [{loader: 'file-loader'}]
         }, {
             test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=image/svg+xml"
+            use: [{loader: 'url-loader', options: {limit: 10000, mimetype: 'image/svg+xml'}}]
         }]
-    },
-    postcss: [
-        values
-    ],
-    stylus: {
-        use: [poststylus([require('autoprefixer')])]
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: '电子商务在线考试系统',
             inject: 'body',
-            template: 'src/template.html'
+            template: path.resolve(__dirname, '..', 'src', 'template.html')
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendors.[hash].js'),
-        new ExtractTextPlugin('app.css', {
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            filename: '[name].[hash:8].js',
+            minChunks: Infinity
+        }),
+        new ExtractTextPlugin({
+            filename: 'app.[contenthash:8].css',
             disable: false,
             allChunks: true
         }),
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require('../dist/manifest.json')
+        }),
+        new webpack.LoaderOptionsPlugin({
+            debug: true,
+            stylus: {
+                default: {
+                    use: [poststylus([require('autoprefixer')])]
+                }
+            },
+            options: {
+                postcss: [
+                    require('postcss-modules-values'), require('autoprefixer')
+                ]
+            }
         })
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx', '.styl']
+        extensions: ['.js', '.jsx', '.styl']
     }
 }
 
