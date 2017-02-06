@@ -33,9 +33,9 @@ const route = [{
     }, {
         path: 'signup',
         getComponent(nextState, cb) {
-            require.ensure([], require => {
-                cb(null, require('./signup.component').default)
-            })
+            import('./signup.component')
+                .then(mod => cb(null, mod.default))
+                .catch(err => console.error(err))
         }
     }]
 }]

@@ -14,10 +14,7 @@ const route = [{
     childRoutes: [{
         path: ':id',
         getComponent(nextState, cb) {
-            // System.import('./article').then(mod => cb(mod.default)).catch(err => console.error(err))
-            require.ensure([], require => {
-                cb(null, require('./article').default)
-            })
+            import('./article').then(mod => cb(null, mod.default)).catch(err => console.error(err))
         }
     }]
 }]

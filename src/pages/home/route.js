@@ -14,9 +14,9 @@ const route = [{
     childRoutes: [
         { path: 'student', component: StudentDashboard },
         { path: 'teacher', getComponent(nextState, cb) {
-            require.ensure([], require => {
-                cb(null, require('./teacher/teacher').default)
-            })
+            import('./teacher/teacher')
+                .then(mod => cb(null, mod.default))
+                .catch(err => console.error(err))
         }}
     ]
 }]

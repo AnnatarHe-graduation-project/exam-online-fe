@@ -2,6 +2,7 @@
     "presets": [["es2015", { "modules": false}], "react"],
     "plugins": [
         ["transform-decorators-legacy"],
+        "syntax-dynamic-import",
         "react-hot-loader/babel"
     ]
 }

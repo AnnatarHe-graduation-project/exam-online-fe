@@ -14,14 +14,14 @@ const route = [{
     childRoutes: [
         { path: 'welcome', component: Welcome },
         { path: 'examing', getComponent(nextState, cb) {
-            require.ensure([], require => {
-                cb(null, require('./examing').default)
-            })
+            import('./examing')
+                .then(mod => cb(null, mod.default))
+                .catch(err => console.error(err))
         }},
         { path: 'finish', getComponent(nextState, cb) {
-            require.ensure([], require => {
-                cb(null, require('./finished').default)
-            })
+            import('./finished')
+                .then(mod => cb(null, mod.default))
+                .catch(err => console.error(err))
         }}
     ]
 }]

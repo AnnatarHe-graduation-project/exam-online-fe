@@ -90,11 +90,6 @@ const config = {
                 default: {
                     use: [poststylus([require('autoprefixer')])]
                 }
-            },
-            options: {
-                postcss: [
-                    require('postcss-modules-values'), require('autoprefixer')
-                ]
             }
         })
     ],
