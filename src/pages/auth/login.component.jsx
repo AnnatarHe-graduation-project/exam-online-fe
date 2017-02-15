@@ -14,6 +14,9 @@ import {
 
 import styles from './login.css'
 
+import changeTitleHOC from '../../components/HOC/changeTitle'
+
+@changeTitleHOC(true)
 @connect()
 class Login extends React.Component {
     constructor(props) {
@@ -28,6 +31,9 @@ class Login extends React.Component {
 
         this.doLogin = this.doLogin.bind(this)
         this.selectType = this.selectType.bind(this)
+    }
+    componentDidMount() {
+        this.props.changeTitle('登陆')
     }
 
     selectType(v) {

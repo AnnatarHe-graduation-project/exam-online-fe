@@ -12,7 +12,11 @@
     composes: flexDesign from '../../styles/mixin.css';
     flex: 1;
     flex-direction: column;
+    width: 100%;
 }
 
-
+.main {
+    /* min-height: 100vh; */
+    flex: 1;
+}
 

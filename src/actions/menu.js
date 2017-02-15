@@ -5,11 +5,16 @@
  */
 
 import {
-    MENU_TOGGLE
+    MENU_TOGGLE,
+    CHANGE_TITLE
 } from '../constants/menu'
 
 export const menuToggle = () => {
     return {
         type: MENU_TOGGLE
     }
+}
+
+export const changeTitle = title => {
+    return { type: CHANGE_TITLE, title }
 }

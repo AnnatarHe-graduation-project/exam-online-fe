@@ -14,7 +14,7 @@ import {
 
 import styles from './header.css'
 
-@connect()
+@connect(state => ({ title: state.global.title }))
 class Header extends React.Component {
     constructor(props) {
         super(props)
@@ -32,7 +32,7 @@ class Header extends React.Component {
                     <div className={styles.icon}>
                         <i className="fa fa-bars fa-lg"></i>
                     </div>
-                    <h3 className={styles.head}>Settings</h3>
+                    <h3 className={styles.head}>{this.props.title}</h3>
                 </section>
 
                 <HeaderNavs />

@@ -5,11 +5,13 @@
  */
 
 import {
-    MENU_TOGGLE
+    MENU_TOGGLE,
+    CHANGE_TITLE
 } from '../constants/menu'
 
 const init = {
-    menu: false
+    menu: false,
+    title: '首页'
 }
 
 const global = (state = init, action) => {
@@ -17,6 +19,10 @@ const global = (state = init, action) => {
         case MENU_TOGGLE:
             return Object.assign({}, state, {
                 menu: ! state.menu
+            })
+        case CHANGE_TITLE:
+            return Object.assign({}, state, {
+                title: action.title
             })
         default:
             return state

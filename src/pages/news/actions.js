@@ -16,6 +16,7 @@ export const getArticles = () => {
             .then(res => res.json())
             .then(articles => {
                 dispatch({type: ARTICLES_FETCHED_SUCCESSFULLY, articles})
+                return articles
             })
             .catch(err => {
                 console.error(err)

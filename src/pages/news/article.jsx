@@ -10,13 +10,14 @@ import Loading from '../../components/loading/loading'
 import {
     getOneArticle
 } from './actions'
+import { changeTitle } from '../../actions/menu'
 import styles from './article.css'
-
 
 @connect(state => ({
     article: state.news.article
 }), dispatch => ({
-    getArticle(id) { dispatch(getOneArticle(id)) }
+    getArticle(id) { return dispatch(getOneArticle(id)) },
+    changeTitle(title) { return dispatch(changeTitle(title)) }
 }))
 class Article extends React.Component {
     constructor(props) {
@@ -33,11 +34,12 @@ class Article extends React.Component {
 
     componentDidMount() {
         const id = this.props.params.id
-        this.props.getArticle(id)
+        this.props.getArticle(id).then(article => {
+            this.props.changeTitle(article.title)
+        }).catch(e => console.error(e))
     }
 
     upThis() {
-        console.log('up')
         this.setState(s => ({ up: ! s.up }))
     }
 
@@ -45,7 +47,7 @@ class Article extends React.Component {
         this.setState(s => ({ down: ! s.down }))
     }
     render() {
-        if (! this.props.article.id) {
+        if (typeof this.props.article.id === undefined) {
             return <Loading />
         }
         const { article } = this.props

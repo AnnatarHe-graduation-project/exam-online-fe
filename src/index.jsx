@@ -17,7 +17,6 @@ const realRender = Component => {
         document.body.appendChild(document.createElement('div')))
 }
 
-
 realRender(Root)
 
 if (module.hot) {

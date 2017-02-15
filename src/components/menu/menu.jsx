@@ -17,7 +17,7 @@ const Menu = () => {
     return (
         <nav className={styles.container}>
             <section className={styles.logo}>
-                <h2>LOGO</h2>
+                <h2>考试系统</h2>
             </section>
             <Navs />
         </nav>

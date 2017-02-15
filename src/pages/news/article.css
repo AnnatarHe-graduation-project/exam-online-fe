@@ -15,14 +15,16 @@
     composes: flexDesign from '../../styles/mixin.css';
     composes: center from '../../styles/mixin.css';
     flex-direction: column;
-    max-width: 80rem;
+    width: 100%;
 }
 
 .title {
     font-size: 2rem;
 }
 .paragraph {
-    padding: 0 1rem;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .extra {

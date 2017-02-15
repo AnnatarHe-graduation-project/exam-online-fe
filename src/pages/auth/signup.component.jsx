@@ -5,11 +5,16 @@
  */
 
 import React from 'react'
+import { connect } from 'react-redux'
 import Switch from '../../components/switch/switch'
 import styles from './login.css'
+import changeTitleHOC from '../../components/HOC/changeTitle'
 import {
     requestSignup
 } from './actions'
+
+@changeTitleHOC(true)
+@connect()
 class Signup extends React.Component {
     constructor(props) {
         super(props)
@@ -22,6 +27,10 @@ class Signup extends React.Component {
         }
         this.doSignup = this.doSignup.bind(this)
         this.selectType = this.selectType.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.changeTitle('注册')
     }
 
     selectType() {

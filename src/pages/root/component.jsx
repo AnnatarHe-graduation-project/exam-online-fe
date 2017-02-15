@@ -35,6 +35,8 @@ class Root extends React.PureComponent {
                     className={styles.menu}
                     component="div"
                     transitionName="menu"
+                    transitionEnterTimeout={350}
+                    transitionLeaveTimeout={350}
                 >
                     { menu ? <Menu /> : null }
                 </ReactCSSTransitionGroup>
@@ -42,8 +44,11 @@ class Root extends React.PureComponent {
                     <Header />
                     <ReactCSSTransitionGroup
                         className={styles.content}
-                        component="div"
+                        component="main"
+                        className={styles.main}
                         transitionName="fade"
+                        transitionEnterTimeout={350}
+                        transitionLeaveTimeout={350}
                     >
                         {React.cloneElement(children, {
                             key: location.pathname
