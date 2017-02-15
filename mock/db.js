@@ -95,6 +95,7 @@ module.exports = function() {
         // 'news/articles': news,
         // 'news/trendings': news,
         exams,
+        'profile/me': users[0]
     }
     return data
 }

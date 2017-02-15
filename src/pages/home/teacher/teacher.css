@@ -1,0 +1,3 @@
+.container {
+    composes: item from '../dashboard.css';
+}

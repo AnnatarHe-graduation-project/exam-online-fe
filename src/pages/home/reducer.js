@@ -12,7 +12,9 @@ const init = {
         name: 'AnnatarHe',
         schoolId: '00000000',
         avatar: '',
-        role: 'teacher',
+        role: 8,
+        news: [],
+        paperDone: [],
         CreatedAt: "2017-01-01"
     }
 }

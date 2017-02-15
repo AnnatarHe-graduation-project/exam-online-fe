@@ -15,3 +15,16 @@ export function setProfile(profile) {
     }
 }
 
+export function getProfile() {
+    return dispatch => {
+        return fetch('/api/profile/me')
+            .then(res => res.json())
+            .then(profile => {
+                dispatch(setProfile(profile))
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+}
+

@@ -5,6 +5,7 @@
  */
 import { push } from 'react-router-redux'
 import { getRole } from '../../utils/model'
+import { setProfile } from '../public/actions/profile'
 
 const mockResponseProfile = {
     "data": {
@@ -32,7 +33,6 @@ import {
     DO_FAIL,
     DO_FAIL_RESET
 } from './constants'
-import {setProfile} from '../public/actions/profile'
 
 const loginSuccess = profile => {
     return {

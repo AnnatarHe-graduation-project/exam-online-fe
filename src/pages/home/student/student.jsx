@@ -5,7 +5,12 @@
  */
 
 import React from 'react'
+import { connect } from 'react-redux'
+import Profile from '../../../components/profile/profile'
 
+@connect(state => ({
+    profile: state.profile.profile
+}))
 class Student extends React.Component {
     constructor(props) {
         super(props)
@@ -14,7 +19,13 @@ class Student extends React.Component {
     render() {
         return (
             <section>
-                <h1>student dashboard</h1>
+                <Profile
+                    name={this.props.profile.name}
+                    avatar={this.props.profile.avatar}
+                    paperCount={this.props.profile.paperDone.length}
+                    newsCount={this.props.profile.news.length}
+                    role={this.props.profile.name}
+                />
             </section>
         )
     }
