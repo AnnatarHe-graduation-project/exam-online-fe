@@ -20,7 +20,13 @@ const users = (function() {
             pwd: faker.internet.password(),
             schoolId: faker.random.number(),
             avatar: faker.internet.avatar(),
-            paperDone: [{1: 70}],
+            paperDone: [{
+                name: '概率论',
+                score: 66
+            }, {
+                name: '西方美学史',
+                score: 77
+            }],
             papers: [{}],
             news: [{
                 id: i,

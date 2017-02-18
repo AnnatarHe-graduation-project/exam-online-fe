@@ -12,12 +12,13 @@ import {
 } from './actions'
 import { changeTitle } from '../../actions/menu'
 import styles from './article.css'
+import changeTitleHOC from '../../components/HOC/changeTitle'
 
+@changeTitleHOC(false)
 @connect(state => ({
     article: state.news.article
 }), dispatch => ({
-    getArticle(id) { return dispatch(getOneArticle(id)) },
-    changeTitle(title) { return dispatch(changeTitle(title)) }
+    getArticle(id) { return dispatch(getOneArticle(id)) }
 }))
 class Article extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Article extends React.Component {
     componentDidMount() {
         const id = this.props.params.id
         this.props.getArticle(id).then(article => {
-            this.props.changeTitle(article.title)
+            this.props.changeTitle(this.props.article.title)
         }).catch(e => console.error(e))
     }
 

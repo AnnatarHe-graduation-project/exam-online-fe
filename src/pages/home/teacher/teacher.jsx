@@ -7,10 +7,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Profile from '../../../components/profile/profile'
+import changeTitleHOC from '../../../components/HOC/changeTitle'
+import { LineCharts } from '../../../components/charts'
+
 // import {} from 'recharts'
 
 import styles from './teacher.css'
 
+@changeTitleHOC(false)
 @connect(state => ({
     profile: state.profile.profile
 }))
@@ -18,6 +22,11 @@ class Teacher extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    componentDidMount() {
+        this.props.changeTitle(this.props.profile.name)
+    }
+
     render() {
         return (
             <section className={styles.container}>
@@ -29,7 +38,11 @@ class Teacher extends React.Component {
                     role={this.props.profile.role}
                 />
                 <section className={styles.content}>
-                    content here
+                    <LineCharts
+                        data={this.props.profile.paperDone}
+                        width={500}
+                        height={500}
+                    />
                 </section>
             </section>
         )
