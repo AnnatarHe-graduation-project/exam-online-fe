@@ -1,3 +1,52 @@
 .container {
     composes: item from '../dashboard.css';
 }
+
+.base-border {
+    border: 1px solid #e3e3e3;
+    padding: .5rem;
+    width: 100%;
+}
+
+.charts {
+    composes: base-border;
+}
+
+.avg-scores {
+}
+
+.extra {
+    margin-top: 2rem;
+    composes: flexDesign from '../../../styles/mixin.css';
+    composes: center from '../../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.extra button:first-child {
+    margin-bottom: .5rem;
+}
+
+.divider {
+    background-color: #e3e3e3;
+}
+
+.head {
+
+}
+
+.news-table {
+    text-align: center;
+    composes: base-border;
+}
+
+.news-table tr {
+    transition: all .35s;
+}
+
+.news-table tr:hover {
+    background-color: #faebd7;
+}
+
+.news-table tr td {
+    padding: .5rem 0
+}

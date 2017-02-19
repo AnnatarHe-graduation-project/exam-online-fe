@@ -35,7 +35,8 @@ const users = (function() {
                 bg: faker.image.imageUrl(),
                 up: faker.random.number(),
                 down: faker.random.number(),
-                user: [{}]
+                user: [{}],
+                createdAt: faker.date.past()
             }]
         })
     }

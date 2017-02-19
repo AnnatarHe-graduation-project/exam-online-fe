@@ -40,9 +40,16 @@ const config = {
             loader: ExtractTextPlugin.extract({
                 fallbackLoader: 'style-loader',
                 loader: [
-                    'css-loader?modules=true&camelCase=true',
+                    'css-loader?modules=true&camelCase=true&localIdentName=[name]_[local]-[hash:base64]&sourceMap=true',
                     'postcss-loader'
                 ]
+            })
+        }, {
+            test: /.css$/,
+            include: /node_modules/,
+            loader: ExtractTextPlugin.extract({
+                fallbackLoader: 'style-loader',
+                loader: ['css-loader']
             })
         }, {
             test: /\.(png|jpg|jpeg|gif)$/,
