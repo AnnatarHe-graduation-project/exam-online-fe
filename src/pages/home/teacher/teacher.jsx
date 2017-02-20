@@ -8,6 +8,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Button } from 'le-theme'
+import NewsTable from '../../../components/news/news'
 import Profile from '../../../components/profile/profile'
 import changeTitleHOC from '../../../components/HOC/changeTitle'
 import {
@@ -27,23 +28,6 @@ class Teacher extends React.Component {
 
     componentDidMount() {
         this.props.changeTitle(this.props.profile.name)
-    }
-
-    renderNewsRecord() {
-        return this.props.profile.news.map((item, index) => {
-            return (
-                <tr key={index}>
-                    <td>{item.id}</td>
-                    <td>
-                        <Link to={`/news/${item.id}`}>{item.title}</Link>
-                    </td>
-                    <td>
-                        <i className="fa fa-lg fa-thumbs-o-up" />
-                        <span>{item.up}</span>
-                    </td>
-                </tr>
-            )
-        })
     }
 
     render() {
@@ -94,19 +78,7 @@ class Teacher extends React.Component {
                         </BarChart>
                     </div>
                     <hr className={styles.divider} />
-                    <div className={styles.newsRecord}>
-                        <h2 className={styles.head}>新闻列表</h2>
-                        <table className={styles.newsTable}>
-                            <thead>
-                                <tr>
-                                    <td>id</td>
-                                    <td>名称</td>
-                                    <td>点赞</td>
-                                </tr>
-                            </thead>
-                            <tbody>{this.renderNewsRecord()}</tbody>
-                        </table>
-                    </div>
+                    <NewsTable news={this.props.profile.news} />
                 </section>
             </section>
         )

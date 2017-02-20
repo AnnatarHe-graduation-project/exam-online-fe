@@ -40,7 +40,7 @@ class News extends React.Component {
             return <Loading />
         }
         return (
-            <section>
+            <section className={styles.container}>
                 <Cards className={styles.newsCardContainer}>
                     { this.articleItemRender() }
                 </Cards>

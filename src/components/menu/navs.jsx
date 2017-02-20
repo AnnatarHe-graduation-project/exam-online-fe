@@ -28,7 +28,7 @@ class Navs extends React.PureComponent {
                 text: '信息'
             }, {
                 to: '/news',
-                icon: 'paper',
+                icon: 'external-link',
                 text: '消息'
             }]
         }

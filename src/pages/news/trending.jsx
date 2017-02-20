@@ -14,7 +14,9 @@ const Trending = ({ lists }) => {
             { lists.slice(10).map((list, index) => {
                 return (
                     <li className={styles.liItem} key={index}>
-                        <Link className={styles.linkItem}>{ list.title }</Link>
+                        <Link className={styles.linkItem} to={`/news/${list.id}`}>
+                            { list.title }
+                        </Link>
                     </li>
                 )
             })}

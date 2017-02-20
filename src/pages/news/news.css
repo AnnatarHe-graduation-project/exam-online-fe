@@ -1,3 +1,13 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
 .news-card-container {
     flex-direction: column;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex: 4;
 }

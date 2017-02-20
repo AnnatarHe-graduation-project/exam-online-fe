@@ -11,10 +11,10 @@ import { getRole } from '../../utils/model'
 
 const Profile = ({ avatar, name, paperCount, newsCount, role }) => {
     const data = [
-        { key: 'name', value: name },
-        { key: 'paperCount', value: paperCount },
-        { key: 'newsCount', value: newsCount },
-        { key: 'role', value: getRole(~~role) }
+        { key: '名称', value: name },
+        { key: '卷子完成', value: paperCount },
+        { key: '发布消息', value: newsCount },
+        { key: '角色', value: getRole(~~role) }
     ]
     return (
         <aside className={styles.container}>

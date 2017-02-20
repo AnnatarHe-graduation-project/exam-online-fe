@@ -6,13 +6,12 @@
 
 
 export function getRole(roleNumber) {
-    let role = ''
-    if (roleNumber >= 10 && roleNumber < 20) {
-        role = 'student'
-    }
     if (roleNumber >= 20 && roleNumber <= 30) {
-        role = 'teacher'
+        return '教师'
     }
+    // if (roleNumber >= 10 && roleNumber < 20) {
+        // return 'student'
+    // }
     // 没有做其他判定，暂时如此吧
-    return role
+    return '学生'
 }

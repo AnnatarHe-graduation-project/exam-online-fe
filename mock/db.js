@@ -26,6 +26,9 @@ const users = (function() {
             }, {
                 name: '西方美学史',
                 score: 77
+            }, {
+                name: '操作系统',
+                score: 90
             }],
             papers: [{}],
             news: [{

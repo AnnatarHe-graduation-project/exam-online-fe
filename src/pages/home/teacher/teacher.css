@@ -29,24 +29,3 @@
 .divider {
     background-color: #e3e3e3;
 }
-
-.head {
-
-}
-
-.news-table {
-    text-align: center;
-    composes: base-border;
-}
-
-.news-table tr {
-    transition: all .35s;
-}
-
-.news-table tr:hover {
-    background-color: #faebd7;
-}
-
-.news-table tr td {
-    padding: .5rem 0
-}

@@ -6,7 +6,13 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import {
+    Radar, RadarChart, PolarGrid, Legend,
+    Tooltip, PolarAngleAxis, PolarRadiusAxis
+} from 'recharts'
 import Profile from '../../../components/profile/profile'
+import NewsTable from '../../../components/news/news'
+import styles from './student.css'
 
 @connect(state => ({
     profile: state.profile.profile
@@ -18,14 +24,44 @@ class Student extends React.Component {
 
     render() {
         return (
-            <section>
-                <Profile
-                    name={this.props.profile.name}
-                    avatar={this.props.profile.avatar}
-                    paperCount={this.props.profile.paperDone.length}
-                    newsCount={this.props.profile.news.length}
-                    role={this.props.profile.name}
-                />
+            <section className={styles.container}>
+                <section>
+                    <Profile
+                        name={this.props.profile.name}
+                        avatar={this.props.profile.avatar}
+                        paperCount={this.props.profile.paperDone.length}
+                        newsCount={this.props.profile.news.length}
+                        role={this.props.profile.name}
+                    />
+                </section>
+                <section className={styles.content}>
+                    <div className={styles.avgScores}>
+                        <h2 className={styles.head}>平均考试成绩</h2>
+                        <RadarChart
+                            cx={300}
+                            cy={250}
+                            outerRadius={150}
+                            width={500}
+                            height={400}
+                            data={this.props.profile.paperDone}
+                        >
+                            <Radar
+                                name={this.props.profile.name}
+                                dataKey="score"
+                                stroke="#8884d8"
+                                fill="#8884d8"
+                                fillOpacity={0.6}
+                            />
+                            <PolarGrid />
+                            <PolarAngleAxis dataKey="name" />
+                            <Legend />
+                            <Tooltip />
+                            <PolarRadiusAxis />
+                        </RadarChart>
+                    </div>
+                    <hr className={styles.divider} />
+                    <NewsTable news={this.props.profile.news} />
+                </section>
             </section>
         )
     }
