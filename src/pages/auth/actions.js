@@ -55,17 +55,16 @@ const loginFail = err => {
  */
 export const requestLogin = data => {
     return dispatch => {
-        // return fetch('/api/auth/login', {
-        //     method: 'POST',
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        return Promise.resolve(mockResponseProfile)
+        return fetch('/api/auth/login', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
             .then(res => {
                 dispatch(loginSuccess(res))
                 dispatch(setProfile(res.data))
                 // redirect to dashboard
-                dispatch(push('/dashboard/' + getRole(res.data.role)))
+                dispatch(push('/dashboard/' + getRole(res.data.role, true)))
             })
             .catch(err => {
                 dispatch(loginFail(err))
@@ -91,13 +90,18 @@ const signupFail = err => {
 
 
 export const requestSignup = data => {
+    let form = new FormData()
+    Object.keys(data).forEach(item => {
+        form.append(item, data[item])
+    })
     return dispatch => {
-        return fetch('/api/auth/signup', {
+        return fetch('/api/auth/register', {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: form
         })
             .then(res => res.json())
             .then(res => {
+                dispatch(push('/auth/login'))
                 dispatch(signupSuccess(res))
             })
             .catch(err => {

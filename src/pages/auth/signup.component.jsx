@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import AvatarCropper from 'react-avatar-cropper'
 import Switch from '../../components/switch/switch'
 import styles from './login.css'
 import changeTitleHOC from '../../components/HOC/changeTitle'
@@ -23,7 +24,12 @@ class Signup extends React.Component {
             id: '',
             name: '',
             pwd: '',
-            type: true
+            type: true,
+            avatar: null,
+            editor: {
+                show: false,
+                img: null
+            }
         }
         this.doSignup = this.doSignup.bind(this)
         this.selectType = this.selectType.bind(this)
@@ -45,8 +51,45 @@ class Signup extends React.Component {
             username: this.state.name,
             pwd: this.state.pwd,
             school_id: this.state.id,
-            role: this.state.type ? 'student' : 'teacher'
+            role: this.state.type ? 11 : 21,
+            avatar: this.state.avatar
         }))
+    }
+
+    onCrop = avatar => {
+        this.setState({ avatar, editor: { show: false } })
+    }
+
+    handFile = e => {
+        let reader = new FileReader()
+        let file = e.target.files[0]
+        if (! file) {
+            return
+        }
+
+        reader.onload = img => {
+            this.setState({ editor: {show: true, img: img.target.result}})
+        }
+        reader.readAsDataURL(file)
+    }
+
+    renderAvatarEditor() {
+        return this.state.editor.show ? (
+            <AvatarCropper
+                onRequestHide={() => { this.setState((s) => ({
+                    editor: { show: ! s.editor.show, img: s.editor.img }
+                }))}}
+                cropperOpen={this.state.editor.show}
+                onCrop={this.onCrop}
+                image={this.state.editor.img}
+                width={400}
+                height={400}
+            />
+        ) : this.state.avatar ? (
+            <img src={this.state.avatar} alt="avatar" />
+        ) : (
+            <input type="file" accept="image/*" onChange={this.handFile} />
+        )
     }
 
     render() {
@@ -77,6 +120,7 @@ class Signup extends React.Component {
                             onChange={e => this.setState({pwd: e.target.value})}
                             placeholder="密码"/>
                     </div>
+                    {this.renderAvatarEditor()}
                     <div className="form-group form-center">
                         <Switch
                             pos={this.state.type}

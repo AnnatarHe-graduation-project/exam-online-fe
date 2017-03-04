@@ -20,7 +20,8 @@ const route = {
         ...getRoute('home'),
         ...getRoute('auth'),
         ...getRoute('exam'),
-        ...getRoute('news')
+        ...getRoute('news'),
+        ...getRoute('papers')
     ]
 }
 

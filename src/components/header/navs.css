@@ -5,8 +5,11 @@
 .go {
     display: flex;
     padding: 1rem;
-    composes: hover from '../../styles/mixin.css';
     color: #fff;
+}
+
+.active {
+    composes: hover from '../../styles/mixin.css';
 }
 
 .go:visited {

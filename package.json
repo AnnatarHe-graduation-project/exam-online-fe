@@ -23,6 +23,7 @@
     "postcss-modules-values": "^1.2.2",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
+    "react-avatar-cropper": "^0.1.3",
     "react-dom": "^15.4.2",
     "react-hot-loader": "next",
     "react-redux": "^4.4.5",

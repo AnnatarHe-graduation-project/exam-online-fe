@@ -19,11 +19,11 @@ class Navs extends React.PureComponent {
                 icon: 'home',
                 text: '首页'
             }, {
-                to: '/student/exam',
+                to: '/exams',
                 icon: 'file-o',
                 text: '考试'
             }, {
-                to: '/student/profile',
+                to: '/auth/login',
                 icon: 'user',
                 text: '信息'
             }, {
@@ -39,8 +39,8 @@ class Navs extends React.PureComponent {
             const cn = `fa fa-lg fa-${nav.icon} ${styles.icon}`
             return (
                 <li className={styles.navItem} key={index}>
-                    <Link to={nav.to} className={styles.link} activeClassName={styles.choosed}>
-                        <i className={cn}></i>
+                    <Link to={nav.to} className={styles.link} activeClassName={styles.choosed} onlyActiveOnIndex={true}>
+                        <i className={cn}/>
                         <span className={styles.text}>{nav.text}</span>
                     </Link>
                 </li>

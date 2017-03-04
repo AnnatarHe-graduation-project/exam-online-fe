@@ -34,7 +34,7 @@ class HeaderNavs extends React.Component {
             const cn = `fa fa-lg fa-${nav.icon}`
             return (
                 <li className={styles.links} key={index}>
-                    <Link to={nav.to} className={styles.go}>
+                    <Link to={nav.to} className={styles.go} activeClassName={styles.active}>
                         <i className={cn}></i>
                     </Link>
                 </li>

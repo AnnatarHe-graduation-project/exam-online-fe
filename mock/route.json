@@ -1,5 +1,6 @@
 {
     "/api/": "/",
     "/news/articles": "/news",
-    "/news/trendings": "/news"
+    "/news/trendings": "/news",
+    "/exams/list": "/exams"
 }

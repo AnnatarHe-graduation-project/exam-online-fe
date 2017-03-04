@@ -43,7 +43,6 @@ class Root extends React.PureComponent {
                 <section className={styles.container}>
                     <Header />
                     <ReactCSSTransitionGroup
-                        className={styles.content}
                         component="main"
                         className={styles.main}
                         transitionName="fade"

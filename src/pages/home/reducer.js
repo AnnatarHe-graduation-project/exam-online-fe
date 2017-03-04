@@ -9,13 +9,13 @@ import {
 
 const init = {
     profile: {
-        name: 'AnnatarHe',
-        schoolId: '00000000',
+        name: '',
+        schoolId: '',
         avatar: '',
-        role: 8,
+        role: -1,
         news: [],
         paperDone: [],
-        CreatedAt: "2017-01-01"
+        CreatedAt: ''
     }
 }
 

@@ -17,7 +17,7 @@ import {
     PUSHING_SCORE,
     PUSHED_SCORE
 } from './constants'
-
+import { GOT_EXAMS } from '../public/constants/exams'
 const init = {
     loading: true,
     // 只有在最后一页面才会用到pushing
@@ -32,7 +32,8 @@ const init = {
         score: '',
         hero: ''
     },
-    questions: []
+    questions: [],
+    exams: [{id: -1, title: '', desc: '', image: ''}]
 }
 
 const examReducer = (state = init, action) => {
@@ -71,6 +72,10 @@ const examReducer = (state = init, action) => {
         case FETCHED_PAPER_FAIL:
             return Object.assign({}, state, {
                 err: action.err
+            })
+        case GOT_EXAMS:
+            return Object.assign({}, state, {
+                exams: action.exams
             })
         default:
             return state

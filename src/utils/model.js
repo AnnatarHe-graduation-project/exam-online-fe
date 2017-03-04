@@ -5,13 +5,16 @@
  */
 
 
-export function getRole(roleNumber) {
+export function getRole(roleNumber, eng) {
+    if (roleNumber === -1) {
+        return 'not login'
+    }
     if (roleNumber >= 20 && roleNumber <= 30) {
-        return '教师'
+        return eng ? 'teacher' : '教师'
     }
     // if (roleNumber >= 10 && roleNumber < 20) {
         // return 'student'
     // }
     // 没有做其他判定，暂时如此吧
-    return '学生'
+    return eng ? 'student' : '学生'
 }
