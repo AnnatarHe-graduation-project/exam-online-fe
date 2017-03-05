@@ -8,6 +8,14 @@ import Container from './container'
 import Welcome from './welcome'
 
 const route = [{
+    path: '/exam/add',
+    getComponent(ns, cb) {
+        import('./add')
+            .then(mod => mod.default)
+            .then(mod => cb(null, mod))
+            .catch(e => { console.err(e) })
+    }
+}, {
     path: '/exam/:id',
     component: Container,
     indexRoute: { component: Welcome },

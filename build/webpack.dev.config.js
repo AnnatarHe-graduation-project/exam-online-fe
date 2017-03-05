@@ -15,7 +15,7 @@ config.entry.unshift(
 )
 
 config.target = 'web'
-config.devtool = '#inline-source-map'
+config.devtool = 'inline-source-map'
 config.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()

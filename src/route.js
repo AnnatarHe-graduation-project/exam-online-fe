@@ -21,7 +21,8 @@ const route = {
         ...getRoute('auth'),
         ...getRoute('exam'),
         ...getRoute('news'),
-        ...getRoute('papers')
+        ...getRoute('papers'),
+        ...getRoute('questions')
     ]
 }
 
