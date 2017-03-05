@@ -61,6 +61,16 @@ export const requestLogin = data => {
         })
             .then(res => res.json())
             .then(res => {
+                const newData = Object.assign({}, res.data, {
+                    paperDone: res.data.paperDone === null ? [] : res.data.paperDone,
+                    news: res.data.news === null ? [] : res.data.news,
+                    papers: res.data.papers === null ? [] : res.data.papers
+                })
+                return Object.assign({}, res, {
+                    data: newData
+                })
+            })
+            .then(res => {
                 dispatch(loginSuccess(res))
                 dispatch(setProfile(res.data))
                 // redirect to dashboard

@@ -23,6 +23,7 @@ config.plugins.push(
 
 config.devServer = {
     hot: true,
+    port: 8900,
     contentBase: path.resolve(__dirname, '..'),
     historyApiFallback: true,
     proxy: {
