@@ -5,7 +5,7 @@
  */
 
 const route = [{
-    path: '/questions/add',
+    path: '/question/add',
     getComponent(ns, cb) {
         import('./add')
             .then(mod => mod.default)

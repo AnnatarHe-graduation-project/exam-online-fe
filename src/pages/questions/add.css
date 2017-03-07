@@ -1,2 +1,14 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+}
+
 .exam-container {
 }
