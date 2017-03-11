@@ -98,3 +98,18 @@ export const submitPaperResult = score => {
     }
 }
 
+
+export function addPaper(data) {
+    let formData = new FormData()
+    Object.keys(data).forEach(item => {
+        formData.append(item, data[item])
+    })
+
+    return dispatch => {
+        // 教师id通过服务端获取
+        return fetch('/api/paper', {
+            method: 'POST',
+            body: formData
+        })
+    }
+}

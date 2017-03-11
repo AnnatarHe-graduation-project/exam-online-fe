@@ -6,9 +6,26 @@
 
 .hr {
     display: block;
-    width: 100%;
+    width: 80%;
+    margin: 3rem 0;
     height: 1px;
 }
 
 .exam-container {
+}
+
+.excel-container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    margin-top: 3rem;
+}
+
+.add-button {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    padding-bottom: 1rem;
+}
+
+.dragger-container {
+    padding: 1rem 2rem;
 }

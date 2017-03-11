@@ -13,7 +13,7 @@ const route = [{
         import('./add')
             .then(mod => mod.default)
             .then(mod => cb(null, mod))
-            .catch(e => { console.err(e) })
+            .catch(e => { console.error(e) })
     }
 }, {
     path: '/exam/:id',

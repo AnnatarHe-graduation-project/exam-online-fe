@@ -6,6 +6,16 @@
 
 const faker = require('faker')
 
+let categories = []
+
+for (let i = 0; i < 20; i++) {
+    categories.push({
+        id: i,
+        name: faker.random.words(),
+        desc: faker.lorem.paragraph(),
+    })
+}
+
 // faker.locale = 'zh-CN'
 
 const word = faker.lorem.word
@@ -67,7 +77,7 @@ for (let i = 1; i < 20; i++) {
         title: faker.lorem.words(),
         content: faker.lorem.paragraph(),
         answers: [word(), word(), word(), word()],
-        right: 3,
+        correct: 3,
         hasBug: 0,
         score: 5,
         courses: "pay"
@@ -92,6 +102,7 @@ const news = (function() {
 
 module.exports = function() {
     const data = {
+        courses: categories,
         user: users,
         paper: [{
             id: 1,
@@ -101,6 +112,7 @@ module.exports = function() {
             hero: faker.image.image(),
             questions
         }],
+        questions,
         news,
         // 'news/articles': news,
         // 'news/trendings': news,

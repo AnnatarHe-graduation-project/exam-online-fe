@@ -1,0 +1,17 @@
+.container {
+    margin: 1rem 0;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.container form {
+    box-shadow: 0 0 .3rem #e3e3e3;
+    padding: 1rem;
+}
+
+.add-button {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    padding-bottom: 1rem;
+}

@@ -10,12 +10,15 @@ import global from './global'
 import exam from '../pages/exam/reducer'
 import profile from '../pages/home/reducer'
 import news from '../pages/news/reducer'
+import questions from '../pages/questions/reducer'
+
 const rootReducer = combineReducers({
     routing: routerReducer,
     global,
     exam,
     profile,
-    news
+    news,
+    questions
 })
 
 export default rootReducer
