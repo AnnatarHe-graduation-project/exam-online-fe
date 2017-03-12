@@ -10,6 +10,7 @@ export const getExams = () => {
     return dispatch => {
         return fetch('/api/exams/list')
             .then(res => res.json())
+            .then(res => res.data)
             .then(exams => {
                 dispatch({ type: GOT_EXAMS, exams })
             })

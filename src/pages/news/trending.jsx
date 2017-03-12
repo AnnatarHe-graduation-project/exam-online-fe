@@ -11,10 +11,10 @@ import styles from './trending.css'
 const Trending = ({ lists }) => {
     return (
         <ol className={styles.container}>
-            { lists.slice(10).map((list, index) => {
+            { lists.slice(0, 10).map((list, index) => {
                 return (
                     <li className={styles.liItem} key={index}>
-                        <Link className={styles.linkItem} to={`/news/${list.id}`}>
+                        <Link className={styles.linkItem} to={`/news/${list.ID}`}>
                             { list.title }
                         </Link>
                     </li>
@@ -26,7 +26,7 @@ const Trending = ({ lists }) => {
 
 Trending.PropTypes = {
     lists: React.PropTypes.arrayOf({
-        id: React.PropTypes.number.isRequired,
+        ID: React.PropTypes.number.isRequired,
         title: React.PropTypes.string.isRequired
     }).isRequired
 }

@@ -1,11 +1,11 @@
 import { QUESTIONS_GOT } from './constants'
 export function addQuestion(data) {
     let formdata = new FormData()
-    Object.keys().forEach(item => {
+    Object.keys(data).forEach(item => {
         formdata.append(item, data[item])
     })
     return dispatch => {
-        return fetch('/api/questions', {
+        return fetch('/api/question/add', {
             method: 'POST',
             body: formdata
         })
@@ -14,9 +14,10 @@ export function addQuestion(data) {
 
 export function getQuestions() {
     return dispatch => {
-        return fetch('/api/questions').then(res => res.json())
+        return fetch('/api/question')
+            .then(res => res.json())
             .then(res => {
-                dispatch({ type: QUESTIONS_GOT, questions: res })
+                dispatch({ type: QUESTIONS_GOT, questions: res.data })
                 return res
             })
     }

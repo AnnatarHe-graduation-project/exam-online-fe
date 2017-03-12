@@ -18,9 +18,9 @@ const NewsTable = ({ news }) => {
                     { news.map((item, index) => {
                         return (
                             <tr key={index}>
-                                <td>{item.id}</td>
+                                <td>{item.ID}</td>
                                 <td>
-                                    <Link to={`/news/${item.id}`}>{item.title}</Link>
+                                    <Link to={`/news/${item.ID}`}>{item.title}</Link>
                                 </td>
                                 <td>
                                     <i className="fa fa-lg fa-thumbs-o-up" />
@@ -38,7 +38,7 @@ const NewsTable = ({ news }) => {
 
 NewsTable.propTypes = {
     news: React.PropTypes.arrayOf(React.PropTypes.shape({
-        id: React.PropTypes.number,
+        ID: React.PropTypes.number,
         title: React.PropTypes.string,
         up: React.PropTypes.number
     }))

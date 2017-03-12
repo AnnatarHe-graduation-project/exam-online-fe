@@ -50,8 +50,12 @@ export const fetchPaper = id => {
         dispatch(fetchingPaper())
         return fetch(`/api/paper/${id}`)
             .then(res => res.json())
+            .then(res => res.data)
             .then(paper => {
-                const questions = paper.questions
+                const questions = paper.questions.map(q => {
+                    q.answers = JSON.parse(q.answers)
+                    return q
+                })
                 delete paper.questions
                 dispatch(fetchedPaper(paper))
                 dispatch(fetchedQuestions(questions))
@@ -83,15 +87,14 @@ export const submitPaperResult = score => {
 
         // 需要获取用户数据，用以传递
         const state = getState()
-        const paperID = state.exam.paper.id
+        const paperID = state.exam.paper.ID
         const userID = 1
+        let fd = new FormData()
+        fd.append('score', score)
         return fetch(`/api/user/finished/${paperID}`, {
             method: 'POST',
-            body: JSON.stringify({
-                score
-            })
-        })
-            .then(res => res.json())
+            body: fd
+        }).then(res => res.json())
             .then(res => {
                 dispatch(finishedPaper())
             })
@@ -107,7 +110,7 @@ export function addPaper(data) {
 
     return dispatch => {
         // 教师id通过服务端获取
-        return fetch('/api/paper', {
+        return fetch('/api/paper/add', {
             method: 'POST',
             body: formData
         })

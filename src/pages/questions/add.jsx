@@ -63,8 +63,8 @@ class AddQuestion extends React.PureComponent {
         this.props.addQuestion({
             title, content,
             correct, score,
-            answers: this.state.answers.toJS(),
-            courses: [courses]
+            answers: JSON.stringify(this.state.answers.toJS()),
+            courses
         }).catch(e => { console.error(e)})
             .then(() => { this.setState({ loading: false })})
 
@@ -74,7 +74,7 @@ class AddQuestion extends React.PureComponent {
     renderCourses() {
         return this.props.courses.map((course, index) => {
             return (
-                <Select.Option key={index} value={course.id}>{course.name}</Select.Option>
+                <Select.Option key={index} value={course.ID}>{course.name}</Select.Option>
             )
         })
     }

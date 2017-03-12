@@ -48,7 +48,7 @@ class Article extends React.Component {
         this.setState(s => ({ down: ! s.down }))
     }
     render() {
-        if (typeof this.props.article.id === undefined) {
+        if (typeof this.props.article.ID === undefined) {
             return <Loading />
         }
         const { article } = this.props

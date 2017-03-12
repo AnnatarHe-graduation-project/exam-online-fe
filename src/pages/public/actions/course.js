@@ -6,7 +6,7 @@ export function getCourses() {
             .then(res => {
                 dispatch({
                     type: COURSES_GOT,
-                    courses: res
+                    courses: res.data
                 })
                 return res
             })

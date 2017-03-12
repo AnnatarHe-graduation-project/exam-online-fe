@@ -51,7 +51,7 @@ class Question extends React.PureComponent {
                 <div className={ styles.question }>
                     <div className={ styles.header }>
                         <h2>{ question.title }</h2>
-                        <p>{ question.content }</p>
+                        <div dangerouslySetInnerHTML={{__html: question.content}}></div>
                     </div>
                     <ol className={ styles.list }>
                         { this.answersRender(question.answers) }

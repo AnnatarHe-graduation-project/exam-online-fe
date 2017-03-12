@@ -32,7 +32,7 @@ class Index extends React.Component {
             return (
                 <Card
                     key={index}
-                    to={'/exam/' + exam.id}
+                    to={'/exam/' + exam.ID}
                     title={exam.title}
                     desc={exam.desc}
                     image={exam.image}

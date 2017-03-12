@@ -24,7 +24,7 @@ const formItemLayout =  {
 }
 
 const columns = [
-    { title: 'Id', dataIndex: 'id' },
+    { title: 'Id', dataIndex: 'ID' },
     { title: '名称', dataIndex: 'title' },
     { title: '分数', dataIndex: 'score' },
     { title: '所属学科', dataIndex: 'courses' }
@@ -85,7 +85,7 @@ class AddExams extends React.PureComponent {
     renderCourses() {
         return this.props.courses.map((course, index) => {
             return (
-                <Select.Option key={index} value={course.id}>{course.name}</Select.Option>
+                <Select.Option key={index} value={course.ID}>{course.name}</Select.Option>
             )
         })
     }
@@ -93,7 +93,11 @@ class AddExams extends React.PureComponent {
     onSubmit = e => {
         e.preventDefault()
         const { title, alert, score, hero, courses } = this.state
-        const questions = this.state.questions.map(q => this.state.sourceQuestions.getIn([q, 'id']))
+        const questions = JSON.stringify(
+            this.state.questions.map(q => this.state.sourceQuestions.getIn([q, 'ID']))
+        )
+
+        const coursesJSON = JSON.stringify(courses)
 
         if (
             title === '' ||
@@ -108,7 +112,8 @@ class AddExams extends React.PureComponent {
         }
 
         this.props.addPaper({
-            title, alert, score, hero, courses, questions
+            title, alert, score, hero, questions,
+            courses: coursesJSON
         }).then(() => {
             this.setState({ adding: false })
             message.success('添加考卷成功')
@@ -156,7 +161,7 @@ class AddExams extends React.PureComponent {
                     </Form.Item>
                     <Form.Item label="学科" {...formItemLayout}>
                         <Select
-                            onChange={v => {this.setState({ courses: v})}}
+                            onChange={v => {this.setState({ courses: [v]})}}
                         >
                             {this.renderCourses()}
                         </Select>

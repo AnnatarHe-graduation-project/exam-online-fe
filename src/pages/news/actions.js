@@ -12,15 +12,13 @@ import {
 
 export const getArticles = () => {
     return dispatch => {
-        return fetch('/api/news/articles')
+        return fetch('/api/news/list')
             .then(res => res.json())
-            .then(articles => {
-                dispatch({type: ARTICLES_FETCHED_SUCCESSFULLY, articles})
-                return articles
+            .then(res => {
+                dispatch({type: ARTICLES_FETCHED_SUCCESSFULLY, articles: res.data})
+                return res.data
             })
-            .catch(err => {
-                console.error(err)
-            })
+            .catch(err => { console.error(err) })
     }
 }
 
@@ -28,8 +26,9 @@ export const getTrendings = () => {
     return dispatch => {
         return fetch('/api/news/trendings')
             .then(res => res.json())
-            .then(trendings => {
-                dispatch({type: TRENDING_FETCHED_SUCCESS, trendings})
+            .then(res => {
+                dispatch({type: TRENDING_FETCHED_SUCCESS, trendings: res.data})
+                return res.data
             })
             .catch(err => {
                 console.error(err)
@@ -39,14 +38,12 @@ export const getTrendings = () => {
 
 export const getOneArticle = id => {
     return dispatch => {
-        return fetch(`/api/news/articles/${id}`)
+        return fetch(`/api/news/${id}`)
             .then(res => res.json())
-            .then(article => {
-                dispatch({type: ONE_ARTICLE_FETCHED, article})
+            .then(res => {
+                dispatch({type: ONE_ARTICLE_FETCHED, article: res.data})
             })
-            .catch(err => {
-                console.error(err)
-            })
+            .catch(err => { console.error(err) })
     }
 }
 
@@ -55,9 +52,10 @@ export const addNews = data => {
     Object.keys(data).forEach(item => {
         fd.append(item, data[item])
     })
-
-    return fetch('/api/news', {
-        method: 'POST',
-        body: fd
-    })
+    return dispatch => {
+        return fetch('/api/news/add', {
+            method: 'POST',
+            body: fd
+        })
+    }
 }

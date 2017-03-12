@@ -65,7 +65,7 @@ class NewsAdd extends React.PureComponent {
 
         this.props.addNews({
             title, content, bg,
-            courses: [courses]
+            courses
         }).catch(e => console.error(e))
             .then(() => { this.setState({ loading: false }) })
     }
@@ -73,9 +73,13 @@ class NewsAdd extends React.PureComponent {
     renderCourses() {
         return this.props.courses.map((course, index) => {
             return (
-                <Select.Option key={index} value={course.id}>{course.name}</Select.Option>
+                <Select.Option key={index} value={course.ID}>{course.name}</Select.Option>
             )
         })
+    }
+
+    handleFile = e => {
+        this.setState({ bg: e.target.files[0] })
     }
 
     render() {
@@ -95,6 +99,9 @@ class NewsAdd extends React.PureComponent {
                             value={this.state.content}
                             onChange={v => this.setState({ content: v })}
                         />
+                    </Form.Item>
+                    <Form.Item label="背景图" {...formItemLayout}>
+                        <input type="file" accept="image/*" onChange={this.handleFile} />
                     </Form.Item>
                     <Form.Item label="学科" {...formItemLayout}>
                         <Select

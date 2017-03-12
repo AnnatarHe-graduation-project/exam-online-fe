@@ -32,7 +32,7 @@ class News extends React.Component {
 
     articleItemRender() {
         return this.props.articles.map(
-                (article, index) => <ArticleItem key={index} id={article.id} title={article.title} img={article.bg} />
+                (article, index) => <ArticleItem key={index} id={article.ID} title={article.title} img={article.bg} />
             )
     }
     render() {
