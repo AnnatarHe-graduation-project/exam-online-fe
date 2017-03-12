@@ -49,3 +49,15 @@ export const getOneArticle = id => {
             })
     }
 }
+
+export const addNews = data => {
+    let fd = new FormData()
+    Object.keys(data).forEach(item => {
+        fd.append(item, data[item])
+    })
+
+    return fetch('/api/news', {
+        method: 'POST',
+        body: fd
+    })
+}

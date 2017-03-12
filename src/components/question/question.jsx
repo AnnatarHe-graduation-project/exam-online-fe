@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import { Switch } from 'antd'
 import styles from './question.css'
 
 const options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N']
@@ -20,6 +21,17 @@ class Question extends React.PureComponent {
     }
 
     answersRender(answers) {
+        if (answers.length === 2) {
+            return (
+                <div>
+                    <Switch
+                        checkedChildren={'✅ 对'}
+                        unCheckedChildren={'❌ 错'}
+                        onChange={checked => this.sendScore(checked ? 0 : 1)}
+                    />
+                </div>
+            )
+        }
         return answers.map((ans, index) => {
             // 这里强行绑定一个事件，重复浪费了。不过还好，只有四个
             const sendScore = this.sendScore.bind(this, index)

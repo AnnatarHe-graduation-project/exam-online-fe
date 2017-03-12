@@ -11,6 +11,7 @@ import {
     Tooltip, PolarAngleAxis, PolarRadiusAxis
 } from 'recharts'
 import Profile from '../../../components/profile/profile'
+import AddButton from '../../../components/add/add'
 import NewsTable from '../../../components/news/news'
 import styles from './student.css'
 
@@ -62,6 +63,7 @@ class Student extends React.Component {
                     <hr className={styles.divider} />
                     <NewsTable news={this.props.profile.news} />
                 </section>
+                <AddButton to="/news/add" />
             </section>
         )
     }

@@ -14,6 +14,7 @@ import {
     Select, Form, Input, Slider, Button,
     Upload, Icon, message, Table
 } from 'antd'
+import changeTitleHOC from '../../components/HOC/changeTitle'
 
 import styles from './add.css'
 
@@ -28,6 +29,9 @@ const columns = [
     { title: '分数', dataIndex: 'score' },
     { title: '所属学科', dataIndex: 'courses' }
 ]
+
+
+@changeTitleHOC(true)
 @connect(state => ({
     profile: state.profile,
     questions: state.questions.list,
@@ -67,6 +71,7 @@ class AddExams extends React.PureComponent {
     componentDidMount() {
         this.props.getQuestions()
         this.props.getCourses()
+        this.props.changeTitle('添加试卷')
     }
 
     handleFile = e => {

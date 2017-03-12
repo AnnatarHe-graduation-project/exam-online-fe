@@ -6,6 +6,7 @@
 
 import React from 'react'
 import changeTitleHOC from '../../components/HOC/changeTitle'
+import styles from './news.css'
 
 @changeTitleHOC(true)
 class NewsContainer extends React.PureComponent {
@@ -19,7 +20,7 @@ class NewsContainer extends React.PureComponent {
 
     render() {
         return (
-            <section>
+            <section className={styles.newsContainer}>
                 { this.props.children }
             </section>
         )

@@ -19,10 +19,6 @@ import styles from './examing.css'
 @connect(store => ({
     current: store.exam.current,
     questions: store.exam.questions
-}), dispatch => ({
-    submit(sum) {
-        dispatch(submitPaperResult(sum))
-    }
 }))
 class Examing extends React.Component {
     constructor(props) {
@@ -38,22 +34,22 @@ class Examing extends React.Component {
     }
 
     // 得到的是成绩哦，不是选项
-    getScore(score) {
+    getScore = score => {
         let scores = this.state.scores
         scores[this.props.current] = score
         this.setState({ scores: scores })
     }
 
-    prev(e) {
+    prev = e => {
         this.props.dispatch(prevQuestion(this.props.current))
     }
-    next(e) {
+    next = e => {
         this.props.dispatch(nextQuestion(this.props.current))
     }
 
-    submit() {
+    submit = () => {
         const sum = this.state.scores.reduce((cur, nex) => cur + nex)
-        this.props.submit(sum)
+        this.props.dispatch(submitPaperResult(sum))
         // this.props.dispatch(submitPaperResult(sum))
     }
 

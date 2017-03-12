@@ -5,6 +5,10 @@
     flex-direction: row;
 }
 
+.news-container {
+    height: 100%;
+}
+
 .news-card-container {
     flex-direction: column;
     composes: flexDesign from '../../styles/mixin.css';

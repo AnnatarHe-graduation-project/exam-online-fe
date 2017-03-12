@@ -8,6 +8,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Button } from 'le-theme'
+import AddButton from '../../../components/add/add'
 import NewsTable from '../../../components/news/news'
 import Profile from '../../../components/profile/profile'
 import changeTitleHOC from '../../../components/HOC/changeTitle'
@@ -45,7 +46,7 @@ class Teacher extends React.Component {
                         <Button type="default">
                             <Link
                                 className={styles.addPaper}
-                                to="/paper/add"
+                                to="/exam/add"
                             >
                                 编辑卷子
                             </Link>
@@ -80,6 +81,7 @@ class Teacher extends React.Component {
                     <hr className={styles.divider} />
                     <NewsTable news={this.props.profile.news} />
                 </section>
+                <AddButton to="/news/add" />
             </section>
         )
     }

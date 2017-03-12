@@ -12,6 +12,11 @@ const route = [{
     component: NewsContainer,
     indexRoute: { component: News },
     childRoutes: [{
+        path: 'add',
+        getComponent(nextState, cb) {
+            import('./add').then(mod => cb(null, mod.default)).catch(err => console.error(err))
+        }
+        }, {
         path: ':id',
         getComponent(nextState, cb) {
             import('./article').then(mod => cb(null, mod.default)).catch(err => console.error(err))

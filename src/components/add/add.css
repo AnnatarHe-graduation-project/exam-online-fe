@@ -1,0 +1,21 @@
+.container {
+    position: fixed;
+    right: 3rem;
+    bottom: 5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    background-color: deeppink;
+    transition: all .35s;
+}
+
+.container:hover {
+    box-shadow: 0 0 1rem #9e9e9e;
+    transform: scale(1.1);
+}
+
+.container i {
+    color: #fff;
+}

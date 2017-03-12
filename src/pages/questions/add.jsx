@@ -7,6 +7,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fromJS } from 'immutable'
+import changeTitleHOC from '../../components/HOC/changeTitle'
 import {
     Select, Form, Input, Slider, Button,
     Upload, Icon, message
@@ -21,6 +22,7 @@ const formItemLayout =  {
     wrapperCol: {span: 20}
 }
 
+@changeTitleHOC(true)
 @connect(state => ({
     courses: state.global.courses
 }), dispatch => ({
@@ -43,6 +45,7 @@ class AddQuestion extends React.PureComponent {
 
     componentDidMount() {
         this.props.getCourses()
+        this.props.changeTitle('添加题目')
     }
 
     onSubmit = e => {

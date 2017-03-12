@@ -23,6 +23,6 @@
 .left {
     composes: header-bar;
     composes: hover from '../../styles/mixin.css';
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
