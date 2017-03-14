@@ -7,6 +7,8 @@
 const config = require('./webpack.base.config')
 const webpack = require('webpack')
 
+config.output.publicPath = '/public/dist/'
+
 config.plugins.push(
         new webpack.DefinePlugin({
             'process.env': {
