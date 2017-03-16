@@ -57,6 +57,8 @@ export const requestLogin = data => {
     return dispatch => {
         return fetch('/api/auth/login', {
             method: 'POST',
+            // 允许302
+            credentials: 'include',
             body: JSON.stringify(data)
         })
             .then(res => res.json())
