@@ -27,7 +27,11 @@ config.devServer = {
     contentBase: path.resolve(__dirname, '..'),
     historyApiFallback: true,
     proxy: {
-        '/api': {
+        '/api/*': {
+            target: 'http://127.0.0.1:9000',
+            secure: false
+        },
+        '/public/*': {
             target: 'http://127.0.0.1:9000',
             secure: false
         }

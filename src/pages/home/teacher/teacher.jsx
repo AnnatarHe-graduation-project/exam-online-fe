@@ -59,6 +59,14 @@ class Teacher extends React.Component {
                                 编辑题目
                             </Link>
                         </Button>
+                        <Button type="info">
+                            <Link
+                                className={styles.addPaper}
+                                to="/courses/add"
+                            >
+                                编辑课程
+                            </Link>
+                        </Button>
                     </div>
                 </section>
                 <section className={styles.content}>

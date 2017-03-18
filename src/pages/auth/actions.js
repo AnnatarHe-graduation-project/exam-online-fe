@@ -7,25 +7,6 @@ import { push } from 'react-router-redux'
 import { getRole } from '../../utils/model'
 import { setProfile } from '../public/actions/profile'
 
-const mockResponseProfile = {
-    "data": {
-        "CreatedAt": "2017-01-01T10:39:07.187649Z",
-        "DeletedAt": null,
-        "ID": 13,
-        "UpdatedAt": "2017-01-01T10:39:07.187649Z",
-        "avatar": "",
-        "name": "AnnatarHe",
-        "news": null,
-        "paperDone": "[{\"0\":0}]",
-        "papers": null,
-        "pwd": "aaa",
-        "role": 11,
-        "schoolId": "01111111"
-    },
-    "err": "",
-    "status": 200
-}
-
 import {
     DO_LOGOUT,
     DO_SIGNUP,

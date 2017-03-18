@@ -7,9 +7,7 @@
 import Root from './pages/root/component'
 import Index from './pages/index/component'
 
-function getRoute(component) {
-    return require(`./pages/${component}/route`).default
-}
+const getRoute = component => require(`./pages/${component}/route`).default
 
 const route = {
     path: '/',
@@ -22,7 +20,8 @@ const route = {
         ...getRoute('exam'),
         ...getRoute('news'),
         ...getRoute('papers'),
-        ...getRoute('questions')
+        ...getRoute('questions'),
+        ...getRoute('course')
     ]
 }
 

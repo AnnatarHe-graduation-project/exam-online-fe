@@ -66,8 +66,20 @@ class NewsAdd extends React.PureComponent {
         this.props.addNews({
             title, content, bg,
             courses
-        }).catch(e => console.error(e))
-            .then(() => { this.setState({ loading: false }) })
+        })
+            .then(() => {
+                message.success('添加成功啦')
+                this.setState({
+                    title: '', bg: null, courses: -1
+                })
+            })
+            .catch(e => {
+                console.error(e)
+                message.error('添加失败，请检查网络是否正常连接')
+            })
+            .then(() => {
+                this.setState({ loading: false })
+            })
     }
 
     renderCourses() {

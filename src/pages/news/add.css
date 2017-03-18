@@ -7,6 +7,15 @@
     height: 100%;
 }
 
+
+.course-container {
+    composes: container;
+}
+
+.course-container form {
+    width: 40rem;
+}
+
 .container form {
     padding: 1rem;
     box-shadow: 0 0 .5rem #e3e3e3;

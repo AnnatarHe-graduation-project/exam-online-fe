@@ -23,8 +23,8 @@ class Auth extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        const role = getRole(this.props.profile.role)
+    componentWillReceiveProps(np) {
+        const role = getRole(np.profile.role, true)
         switch (role) {
             case 'teacher':
                 this.props.goToTeacherDashboard()

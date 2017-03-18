@@ -17,7 +17,9 @@ export function setProfile(profile) {
 
 export function getProfile() {
     return dispatch => {
-        return fetch('/api/profile/me')
+        return fetch('/api/profile/me', {
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(res => {
                 if (res.status !== 200) {

@@ -6,23 +6,6 @@
 import Auth from './auth.component'
 import Login from './login.component'
 
-
-// const route = [{
-//     path: 'auth/signup',
-//     getComponent(nextState, cb) {
-//         require.ensure([], require => {
-//             cb(null, require('./component').default)
-//         })
-//     }
-// }, {
-//     path: 'auth/login',
-//     getComponent(nextState, cb) {
-//         require.ensure([], require => {
-//             cb(null, require('./login.component').default)
-//         })
-//     }
-// }]
-
 const route = [{
     path: 'auth',
     component: Auth,
