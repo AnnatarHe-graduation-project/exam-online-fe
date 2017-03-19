@@ -17,6 +17,7 @@
 .excel-container {
     composes: flexDesign from '../../styles/mixin.css';
     composes: center from '../../styles/mixin.css';
+    flex-direction: column;
     margin-top: 3rem;
 }
 
@@ -28,4 +29,9 @@
 
 .dragger-container {
     padding: 1rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.schema {
+    width: 100%;
 }

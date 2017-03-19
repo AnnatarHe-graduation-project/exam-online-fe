@@ -10,7 +10,8 @@ import { fromJS } from 'immutable'
 import changeTitleHOC from '../../components/HOC/changeTitle'
 import {
     Select, Form, Input, Slider, Button,
-    Upload, Icon, message
+    Upload, Icon, message, Alert, Modal,
+    Table
 } from 'antd'
 import RichTextEditor from 'react-rte'
 import { getCourses } from '../public/actions/course'
@@ -21,6 +22,43 @@ const formItemLayout =  {
     labelCol: {span: 4},
     wrapperCol: {span: 20}
 }
+
+const columns = [{
+    title: '标题',
+    dataIndex: 'title',
+    key: 'title'
+}, {
+    title: '内容',
+    dataIndex: 'content',
+    key: 'content'
+}, {
+    title: '答案',
+    dataIndex: 'answers',
+    key: 'answers'
+}, {
+    title: '正确答案',
+    dataIndex: 'correct',
+    key: 'correct'
+}, {
+    title: '得分',
+    dataIndex: 'score',
+    key: 'score'
+}, {
+    title: '学科',
+    dataIndex: 'course',
+    key: 'course'
+}]
+
+const dataSource = [{
+    key: 1,
+    title: '美国独立战争因何而起?',
+    content: '请在下列选项中选出美国独立战争爆发的其中一个原因',
+    answers: '["保卫钓鱼岛", "反对萨德导弹部署", "黑人平权", "捍卫同性恋的权利"]',
+    correct: '[2]',
+    score: '5',
+    course: '美国历史'
+}]
+
 
 @changeTitleHOC(true)
 @connect(state => ({
@@ -39,7 +77,8 @@ class AddQuestion extends React.PureComponent {
             score: -1,
             courses: -1,
             content: RichTextEditor.createEmptyValue(),
-            adding: false
+            adding: false,
+            modalOpen: false
         }
     }
 
@@ -65,8 +104,12 @@ class AddQuestion extends React.PureComponent {
             correct, score,
             answers: JSON.stringify(this.state.answers.toJS()),
             courses
-        }).catch(e => { console.error(e)})
-            .then(() => { this.setState({ loading: false })})
+        }).then(() => {
+            message.success('添加成功')
+        }).catch(e => {
+            message.error('插入失败，请检查网络')
+            console.error(e)
+        }).then(() => { this.setState({ loading: false })})
 
         // 添加操作
     }
@@ -122,14 +165,18 @@ class AddQuestion extends React.PureComponent {
         }
     }
 
+    toggleModal = e => {
+        this.setState(s => ({ modalOpen: ! s.modalOpen }))
+    }
+
     render() {
         return (
             <section className={styles.container}>
                 <div className={styles.excelContainer}>
                     <Upload.Dragger
-                        name='Excel文件'
+                        name='excel'
                         showUploadList={false}
-                        action="/api/question/add"
+                        action="/api/question/excel"
                         onChange={this.uploadExcel}
                     >
                         <div className={styles.draggerContainer}>
@@ -140,6 +187,12 @@ class AddQuestion extends React.PureComponent {
                             <p className="ant-upload-hint"></p>
                         </div>
                     </Upload.Dragger>
+                    <Alert
+                        message="文件类型警告！"
+                        description={<span>请务必按照约定的格式上传正确的Excel文件，否则不能正确解析, <Button onClick={this.toggleModal}>打开连接查看格式</Button></span>}
+                        type="warning"
+                        showIcon
+                    />
                 </div>
                 <hr className={styles.hr} />
                 <div className={styles.formContainer}>
@@ -195,6 +248,23 @@ class AddQuestion extends React.PureComponent {
                         </div>
                     </Form>
                 </div>
+                <Modal
+                    title="Excel录入题目文件格式说明"
+                    visible={this.state.modalOpen}
+                    onOk={this.toggleModal}
+                    onCancel={this.toggleModal}
+                >
+                    <p>请使用Office 2010以上版本的Excel进行编辑</p>
+                    <p>每一行为一道题目</p>
+                    <p>第一列为题目标题</p>
+                    <p>第二列为题目内容</p>
+                    <p>第三列为题目答案，JSON数组格式</p>
+                    <p>第四列为题目正确答案的索引值, JSON数组格式</p>
+                    <p>第五列为题目分值，答对此题可获得多少分数</p>
+                    <p>第六列为题目科目名称，从属于哪个科目</p>
+                    <Table dataSource={dataSource} columns={columns} />
+                    <img src={require('../../images/schema.png')} className={styles.schema} />
+                </Modal>
             </section>
         )
     }

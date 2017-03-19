@@ -12,7 +12,8 @@ export const addCourse = data => {
     return dispatch => {
         return fetch('/api/courses', {
             method: 'POST',
-            body: fd
+            body: fd,
+            credentials: 'include'
         }).then(res => res.json())
     }
 }

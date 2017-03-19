@@ -55,7 +55,8 @@ export const addNews = data => {
     return dispatch => {
         return fetch('/api/news/add', {
             method: 'POST',
-            body: fd
+            body: fd,
+            credentials: 'include'
         })
     }
 }

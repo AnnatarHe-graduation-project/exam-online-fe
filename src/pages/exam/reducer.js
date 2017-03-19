@@ -46,17 +46,11 @@ const examReducer = (state = init, action) => {
                 paper: action.paper
             })
         case FETCHED_QUESTION:
-            return Object.assign({}, state, {
-                questions: action.questions
-            })
+            return Object.assign({}, state, { questions: action.questions })
         case PUSHING_SCORE:
-            return Object.assign({}, state, {
-                pushing: true
-            })
+            return Object.assign({}, state, { pushing: true })
         case PUSHED_SCORE:
-            return Object.assign({}, state, {
-                pushing: false
-            })
+            return Object.assign({}, state, { pushing: false })
         case NEXT_QUESTION:
             return Object.assign({}, state, {
                 current: state.current + 1

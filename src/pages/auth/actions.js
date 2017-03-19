@@ -35,14 +35,24 @@ const loginFail = err => {
  * @returns {function(*)}
  */
 export const requestLogin = data => {
+    const fd = new FormData()
+    Object.keys(data).forEach(key => {
+        fd.append(key, data[key])
+    })
     return dispatch => {
         return fetch('/api/auth/login', {
             method: 'POST',
             // 允许302
             credentials: 'include',
-            body: JSON.stringify(data)
+            body: fd
         })
             .then(res => res.json())
+            .then(res => {
+                if (res.status !== 200) {
+                    return Promise.reject(res)
+                }
+                return res
+            })
             .then(res => {
                 const newData = Object.assign({}, res.data, {
                     paperDone: res.data.paperDone === null ? [] : res.data.paperDone,
@@ -58,9 +68,6 @@ export const requestLogin = data => {
                 dispatch(setProfile(res.data))
                 // redirect to dashboard
                 dispatch(push('/dashboard/' + getRole(res.data.role, true)))
-            })
-            .catch(err => {
-                dispatch(loginFail(err))
             })
     }
 }
@@ -110,3 +117,4 @@ export const resetError = () => {
         type: DO_FAIL_RESET
     }
 }
+

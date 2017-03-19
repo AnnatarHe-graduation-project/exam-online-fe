@@ -17,6 +17,7 @@ import {
     PUSHING_SCORE,
     PUSHED_SCORE
 } from './constants'
+import { push } from 'react-router-redux'
 
 const fetchingPaper = () => {
     return {
@@ -88,15 +89,16 @@ export const submitPaperResult = score => {
         // 需要获取用户数据，用以传递
         const state = getState()
         const paperID = state.exam.paper.ID
-        const userID = 1
         let fd = new FormData()
         fd.append('score', score)
         return fetch(`/api/user/finished/${paperID}`, {
             method: 'POST',
-            body: fd
+            body: fd,
+            credentials: 'include'
         }).then(res => res.json())
             .then(res => {
                 dispatch(finishedPaper())
+                dispatch(push(`/exam/${paperID}/finish?score=${score}`))
             })
     }
 }
@@ -112,7 +114,8 @@ export function addPaper(data) {
         // 教师id通过服务端获取
         return fetch('/api/paper/add', {
             method: 'POST',
-            body: formData
+            body: formData,
+            credentials: 'include'
         })
     }
 }

@@ -13,7 +13,6 @@ import NewsTable from '../../../components/news/news'
 import Profile from '../../../components/profile/profile'
 import changeTitleHOC from '../../../components/HOC/changeTitle'
 import {
-    LineChart, Line,
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend
 } from 'recharts'
 import styles from './teacher.css'
@@ -25,6 +24,31 @@ import styles from './teacher.css'
 class Teacher extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            paperMap: [{ ID: 0, name: '', score: 0 }]
+        }
+    }
+
+    componentWillReceiveProps(np) {
+        const paperDoneByStudent = np.profile.PaperDoneByStudent
+        if (paperDoneByStudent && paperDoneByStudent.length > 0) {
+            const paperMap = paperDoneByStudent.reduce((a, p) => {
+                const paperMapItem = {
+                    ID: p.ID,
+                    score: p.score,
+                    name: ''
+                }
+                for (const ps of np.profile.papers) {
+                    if (ps.ID === p.paperID) {
+                        paperMapItem.name = ps.title
+                        break
+                    }
+                }
+                a.push(paperMapItem)
+                return a
+            }, [])
+            this.setState({ paperMap })
+        }
     }
 
     componentDidMount() {
@@ -75,7 +99,7 @@ class Teacher extends React.Component {
                         <BarChart
                             width={500}
                             height={300}
-                            data={this.props.profile.paperDone}
+                            data={this.state.paperMap}
                             className={styles.charts}
                         >
                             <XAxis dataKey="name" />

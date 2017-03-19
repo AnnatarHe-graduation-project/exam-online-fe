@@ -7,7 +7,8 @@ export function addQuestion(data) {
     return dispatch => {
         return fetch('/api/question/add', {
             method: 'POST',
-            body: formdata
+            body: formdata,
+            credentials: 'include'
         })
     }
 }

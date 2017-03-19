@@ -21,6 +21,21 @@ import styles from './student.css'
 class Student extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            paperMap: []
+        }
+    }
+
+    componentWillReceiveProps(np) {
+        if (np.profile.paperDone.length > 0) {
+            const paperMap = np.profile.paperDone.map(item => {
+                const name = item.paper.title
+                const score = item.score
+                return { name, score }
+            })
+            this.setState({ paperMap })
+
+        }
     }
 
     render() {
@@ -44,7 +59,7 @@ class Student extends React.Component {
                             outerRadius={150}
                             width={500}
                             height={400}
-                            data={this.props.profile.paperDone}
+                            data={this.state.paperMap}
                         >
                             <Radar
                                 name={this.props.profile.name}

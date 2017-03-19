@@ -1,0 +1,38 @@
+.container {
+    composes: flexDesign from '../../styles/mixin.css';
+    composes: center from '../../styles/mixin.css';
+    flex-direction: column;
+}
+
+.score {
+    display: inline-block;
+    font-size: 3rem;
+}
+
+.base-info {
+    width: 20rem;
+    height: 20rem;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.great {
+    composes: base-info;
+    background-image: url('../../images/great.jpg');
+}
+.good {
+    composes: base-info;
+    background-image: url('../../images/good.jpg');
+}
+.better {
+    composes: base-info;
+    background-image: url('../../images/better.jpg');
+}
+.not-good {
+    composes: base-info;
+    background-image: url('../../images/not-good.png');
+}
+.zero {
+    composes: base-info;
+    background-image: url('../../images/zero.png');
+}

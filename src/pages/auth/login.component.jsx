@@ -7,7 +7,7 @@
 import React from 'react'
 import Switch from '../../components/switch/switch'
 import { connect } from 'react-redux'
-
+import { message } from 'antd'
 import {
     requestLogin
 } from './actions'
@@ -44,16 +44,17 @@ class Login extends React.Component {
 
     doLogin(e) {
         e.preventDefault()
-        const { id, pwd, type } = this.state
+        const { id, pwd } = this.state
         const requestData = {
-            id,
-            pwd,
-            type
+            username: id,
+            password: pwd
         }
 
-        // TODO:
-        // do a action to login
-        this.props.dispatch(requestLogin(requestData))
+        this.props.dispatch(requestLogin(requestData)).then(() => {
+            message.success('登陆成功，正在跳转')
+        }).catch(e => {
+            message.error('用户名或密码错误，请重试')
+        })
     }
 
     render() {
@@ -76,12 +77,12 @@ class Login extends React.Component {
                             onChange={e => this.setState({ pwd: e.target.value.trim()})}
                             placeholder="密码"/>
                     </div>
-                    <div className="form-group form-center">
+                    {/*<div className="form-group form-center">
                         <Switch
                             pos={this.state.type}
                             desc={this.state.type ? '学生' : '教师'}
                             onChange={this.selectType} />
-                    </div>
+                    </div>*/}
                     <div className="form-group form-center">
                         <button onSubmit={this.doLogin} type="submit" className="btn btn-submit btn-lg btn-radius"> 登陆 </button>
                     </div>

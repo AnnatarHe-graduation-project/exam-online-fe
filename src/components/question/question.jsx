@@ -21,6 +21,7 @@ class Question extends React.PureComponent {
     }
 
     answersRender(answers) {
+        // answers = JSON.parse(answers)
         if (answers.length === 2) {
             return (
                 <div>

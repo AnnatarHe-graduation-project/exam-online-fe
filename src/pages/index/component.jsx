@@ -35,7 +35,7 @@ class Index extends React.Component {
                     to={'/exam/' + exam.ID}
                     title={exam.title}
                     desc={exam.desc}
-                    image={exam.image}
+                    image={exam.hero}
                 />
             )
         })

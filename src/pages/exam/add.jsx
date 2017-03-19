@@ -27,7 +27,7 @@ const columns = [
     { title: 'Id', dataIndex: 'ID' },
     { title: '名称', dataIndex: 'title' },
     { title: '分数', dataIndex: 'score' },
-    { title: '所属学科', dataIndex: 'courses' }
+    { title: '所属学科', dataIndex: '_courses' }
 ]
 
 
@@ -60,6 +60,7 @@ class AddExams extends React.PureComponent {
     componentWillReceiveProps(p) {
         const sourceQuestions = fromJS(p.questions.map((item, index) => {
             item.key = index
+            item._courses = item.courses && item.courses.map(c => c.name )
             return item
         }))
 

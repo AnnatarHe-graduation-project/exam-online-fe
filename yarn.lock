@@ -1327,7 +1327,7 @@ class-autobind@^0.1.4:
   version "0.1.4"
   resolved "http://npm.dev.dr-social.cn/class-autobind/-/class-autobind-0.1.4.tgz#34516c49167cf8d3f639ddc186bcfa2268afff34"
 
-classnames@2.x, classnames@^2.2.0, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@~2.2.0:
+classnames@2.2.5, classnames@2.x, classnames@^2.2.0, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@~2.2.0:
   version "2.2.5"
   resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -1514,13 +1514,13 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "http://registry.npm.taobao.org/cookie/download/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
+core-js@2.4.1, core-js@^2.4.0:
+  version "2.4.1"
+  resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
+
 core-js@^1.0.0:
   version "1.2.7"
   resolved "http://registry.npm.taobao.org/core-js/download/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
-
-core-js@^2.4.0, core-js@^2.4.1:
-  version "2.4.1"
-  resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -1757,9 +1757,9 @@ d3-path@1:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/d3-path/download/d3-path-1.0.3.tgz#60103d0dea9a6cd6ca58de86c6d56724002d3fde"
 
-d3-scale@^1.0.4:
+d3-scale@1.0.4:
   version "1.0.4"
-  resolved "http://registry.npm.taobao.org/d3-scale/download/d3-scale-1.0.4.tgz#50e28bf6a193b706745528515ed9b3d44205a033"
+  resolved "http://npm.dev.dr-social.cn/d3-scale/-/d3-scale-1.0.4.tgz#50e28bf6a193b706745528515ed9b3d44205a033"
   dependencies:
     d3-array "1"
     d3-collection "1"
@@ -1769,9 +1769,9 @@ d3-scale@^1.0.4:
     d3-time "1"
     d3-time-format "2"
 
-d3-shape@^1.0.4:
+d3-shape@1.0.4:
   version "1.0.4"
-  resolved "http://registry.npm.taobao.org/d3-shape/download/d3-shape-1.0.4.tgz#145ee100ccbec42f8e3f1996cd05c786f79fe1c6"
+  resolved "http://npm.dev.dr-social.cn/d3-shape/-/d3-shape-1.0.4.tgz#145ee100ccbec42f8e3f1996cd05c786f79fe1c6"
   dependencies:
     d3-path "1"
 
@@ -3168,7 +3168,7 @@ lodash.words@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
-lodash@^4.11.2, lodash@^4.14.0, lodash@^4.16.4, lodash@^4.16.5, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.6.1:
+lodash@^4.11.2, lodash@^4.14.0, lodash@^4.16.4, lodash@^4.16.5, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.6.1, lodash@~4.17.4:
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4498,9 +4498,9 @@ react-redux@^4.4.5:
     lodash "^4.2.0"
     loose-envify "^1.1.0"
 
-react-resize-detector@^0.3.3:
+react-resize-detector@0.3.3:
   version "0.3.3"
-  resolved "http://registry.npm.taobao.org/react-resize-detector/download/react-resize-detector-0.3.3.tgz#ca07443072324843586666d9443a6356da7c0501"
+  resolved "http://npm.dev.dr-social.cn/react-resize-detector/-/react-resize-detector-0.3.3.tgz#ca07443072324843586666d9443a6356da7c0501"
 
 react-responsive-mixin@^0.4.0:
   version "0.4.0"
@@ -4558,9 +4558,9 @@ react-slick@~0.14.2:
     react-responsive-mixin "^0.4.0"
     slick-carousel "^1.6.0"
 
-react-smooth@^0.1.15:
+react-smooth@0.1.20:
   version "0.1.20"
-  resolved "http://registry.npm.taobao.org/react-smooth/download/react-smooth-0.1.20.tgz#0527eb60d0ee529e98720127aea5d3fbd2e59fb7"
+  resolved "http://npm.dev.dr-social.cn/react-smooth/-/react-smooth-0.1.20.tgz#0527eb60d0ee529e98720127aea5d3fbd2e59fb7"
   dependencies:
     lodash "^4.16.4"
     raf "^3.2.0"
@@ -4649,23 +4649,23 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
-recharts-scale@^0.2.1:
-  version "0.2.1"
-  resolved "http://registry.npm.taobao.org/recharts-scale/download/recharts-scale-0.2.1.tgz#378f543ed17c3245e4d9afb10aaf6298240d2fcb"
+recharts-scale@0.3.0:
+  version "0.3.0"
+  resolved "http://npm.dev.dr-social.cn/recharts-scale/-/recharts-scale-0.3.0.tgz#d17e8c4055dbbeb0d65435c9142ee0fb9054758a"
 
-recharts@^0.19.0:
-  version "0.19.1"
-  resolved "http://registry.npm.taobao.org/recharts/download/recharts-0.19.1.tgz#7b23e63e1f6e905e139dde7e4e91eea863fd448d"
+recharts@^0.21.2:
+  version "0.21.2"
+  resolved "http://npm.dev.dr-social.cn/recharts/-/recharts-0.21.2.tgz#e48b4779e60e0df542d97df8cdee3aff8705f9d4"
   dependencies:
-    classnames "^2.2.5"
-    core-js "^2.4.1"
-    d3-scale "^1.0.4"
-    d3-shape "^1.0.4"
-    lodash "^4.17.2"
-    react-resize-detector "^0.3.3"
-    react-smooth "^0.1.15"
-    recharts-scale "^0.2.1"
-    reduce-css-calc "^1.3.0"
+    classnames "2.2.5"
+    core-js "2.4.1"
+    d3-scale "1.0.4"
+    d3-shape "1.0.4"
+    lodash "~4.17.4"
+    react-resize-detector "0.3.3"
+    react-smooth "0.1.20"
+    recharts-scale "0.3.0"
+    reduce-css-calc "1.3.0"
 
 redbox-react@^1.2.2, redbox-react@^1.2.5, redbox-react@^1.3.2:
   version "1.3.3"
@@ -4674,7 +4674,7 @@ redbox-react@^1.2.2, redbox-react@^1.2.5, redbox-react@^1.3.2:
     error-stack-parser "^1.3.6"
     object-assign "^4.0.1"
 
-reduce-css-calc@^1.2.6, reduce-css-calc@^1.3.0:
+reduce-css-calc@1.3.0, reduce-css-calc@^1.2.6:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/reduce-css-calc/download/reduce-css-calc-1.3.0.tgz#747c914e049614a4c9cfbba629871ad1d2927716"
   dependencies:
