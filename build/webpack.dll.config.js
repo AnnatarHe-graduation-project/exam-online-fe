@@ -14,6 +14,11 @@ const vendors = [
     'redux',
     'react-redux',
     'react-router',
+    'react-router-redux',
+    'antd',
+    'immutable',
+    'react-addons-css-transition-group',
+    'recharts',
     'redux-thunk'
 ]
 
