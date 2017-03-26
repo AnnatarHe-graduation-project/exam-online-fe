@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import { message } from 'antd'
 import { connect } from 'react-redux'
 
 import {
@@ -26,11 +27,20 @@ class Examing extends React.Component {
         this.state = {
             scores: []
         }
-        this.getScore = this.getScore.bind(this)
-        this.prev = this.prev.bind(this)
-        this.next = this.next.bind(this)
-        this.submit = this.submit.bind(this)
+    }
 
+    componentDidMount() {
+        document.addEventListener('visibilitychange', this.outThere)
+    }
+
+    outThere = e => {
+        if (document.visibilityState === 'hidden') {
+            message.warning('请不要再跳出了哦')
+        }
+    }
+
+    componentWillUnmont() {
+        document.removeEventListener('visibilitychange', this.outThere)
     }
 
     // 得到的是成绩哦，不是选项

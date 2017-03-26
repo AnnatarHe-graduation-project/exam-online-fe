@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.config.js",
-    "build": "cross-env NODE_ENV=production webpack -p --config ./build/webpack.pro.config.js",
+    "build:p": "cross-env NODE_ENV=production webpack -p --config ./build/webpack.pro.config.js",
     "dll:p": "cross-env NODE_ENV=production webpack -p --config ./build/webpack.dll.config.js",
     "dll": "cross-env NODE_ENV=development webpack --config ./build/webpack.dll.config.js",
-    "mock": "json-server mock/db.js --routes mock/route.json --port 9999",
+    "mock": "json-server mock/db.js --routes mock/route.json --port 9000",
+    "build": "npm run dll:p && npm run build:p",
     "test": ""
   },
   "repository": {

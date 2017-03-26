@@ -24,5 +24,9 @@
 }
 
 .item:hover {
-    background-color: hsla(50, 97%, 50%, 1);
+    background-color: blue;
+}
+
+.active {
+    background-color: blue;
 }

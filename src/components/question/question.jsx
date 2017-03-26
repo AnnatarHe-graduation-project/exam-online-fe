@@ -13,11 +13,14 @@ const options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 class Question extends React.PureComponent {
     constructor(props) {
         super(props)
+        this.state = {
+            active: -1
+        }
     }
 
     // 如果选对了就返回分数，否则给零分
     sendScore(index, e) {
-        return this.props.getScore(this.props.question.right === index ? this.props.question.score : 0)
+        return this.props.getScore(this.props.question.correct == index ? this.props.question.score : 0)
     }
 
     answersRender(answers) {
@@ -35,11 +38,14 @@ class Question extends React.PureComponent {
         }
         return answers.map((ans, index) => {
             // 这里强行绑定一个事件，重复浪费了。不过还好，只有四个
-            const sendScore = this.sendScore.bind(this, index)
+            // const sendScore = this.sendScore.bind(this, index)
             return (
-                <li key={ index }
-                    className={ styles.item }
-                    onClick={ sendScore }
+                <li key={index}
+                    className={styles.item +  (this.state.active === index ? (' ' + styles.active): '')}
+                    onClick={e => {
+                        this.setState({ active: index })
+                        this.sendScore(index)
+                    }}
                 >{ `${options[index]}. ${ans}` }</li>
             )
         })

@@ -22,9 +22,11 @@ const vendors = [
     'redux-thunk'
 ]
 
+const debug = process.env.NODE_ENV === 'production'
+
 const config = {
     output: {
-        path: path.resolve(__dirname, '..', 'dist'),
+        path: path.resolve(__dirname, '..', debug ? '' : 'public' , 'dist'),
         filename: '[name].js',
         library: '[name]'
     },
