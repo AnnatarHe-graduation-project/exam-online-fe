@@ -53,6 +53,7 @@ class Question extends React.PureComponent {
 
     render() {
         const question = this.props.question
+        const ans = typeof question.answers === 'string' ? JSON.parse(question.answers) : question.answers
         return (
             <article className={ styles.container }>
                 <div className={ styles.question }>
@@ -61,7 +62,7 @@ class Question extends React.PureComponent {
                         <div dangerouslySetInnerHTML={{__html: question.content}}></div>
                     </div>
                     <ol className={ styles.list }>
-                        { this.answersRender(question.answers) }
+                        { this.answersRender(ans) }
                     </ol>
                 </div>
             </article>
