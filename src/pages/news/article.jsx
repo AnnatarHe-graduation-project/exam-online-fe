@@ -56,7 +56,7 @@ class Article extends React.Component {
             <article className={styles.container}>
                 <div className={styles.hero} style={{
                     backgroundImage: `url(${article.bg})`
-                }}></div>
+                }} />
                 {/* set dangour html here */}
                 <div className={styles.content}>
                     <h2 className={styles.title}>{ article.title}</h2>
